@@ -1,0 +1,11 @@
+services:
+  mysql:
+    container_name: 'mysqlcontainer'
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=pbdatabase'
+      - 'MYSQL_PASSWORD=Numsey@Password!'
+      - 'MYSQL_ROOT_PASSWORD=Numsey@Password!!'
+      - 'MYSQL_USER=myuser'
+    ports:
+      - '3306:3306'
