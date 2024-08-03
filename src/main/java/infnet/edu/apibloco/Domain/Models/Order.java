@@ -3,7 +3,6 @@ package infnet.edu.apibloco.Domain.Models;
 import infnet.edu.apibloco.Domain.Primitives.AggregateRoot;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity

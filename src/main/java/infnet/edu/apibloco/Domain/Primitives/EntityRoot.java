@@ -7,32 +7,28 @@ import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class EntityRoot {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long Id;
+    public long id;
 
-    //Jpa required
-    protected EntityRoot()
-    {}
-
-    protected EntityRoot(long id)
-    {
-        Id = id;
+    // Jpa required
+    protected EntityRoot() {
     }
 
-    public boolean Equals(EntityRoot obj)
-    {
-        if(obj != null)
-        {
-            if(obj.getClass() != this.getClass())
-            {
+    protected EntityRoot(long id) {
+        this.id = id;
+    }
+
+    public boolean Equals(EntityRoot obj) {
+        if (obj != null) {
+            if (obj.getClass() != this.getClass()) {
                 return false;
             }
-            return obj.Id == Id;
+            return obj.id == this.id;
         }
 
         return true;
     }
-    
+
 }
