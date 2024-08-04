@@ -37,13 +37,16 @@ public class UserController {
     @GetMapping(GetEndpoint)
     public ResponseEntity<?> GetUsers(@RequestParam(name = IdParam) long id) {
 
-        User fetched = _service.findById(id).get();
+        var fetched = _service.findById(id);
 
-        if (fetched.id > 0)
-            return new ResponseEntity<User>(fetched, HttpStatusCode.valueOf((200)));
+        if(fetched.isPresent()){
+        
+            var result = fetched.get();
 
+            if (result.id > 0)
+               return new ResponseEntity<User>(result, HttpStatusCode.valueOf((200)));
+        }     
         return new ResponseEntity<>(HttpStatusCode.valueOf((404)));
-
     }
 
     @GetMapping(GetAllEndpoint)
@@ -57,6 +60,7 @@ public class UserController {
 
     @PostMapping(CreateEndpoint)
     public ResponseEntity<?> CreateUser(@RequestBody CreateUserRequest request) {
+
         var user = new User(0, request.getName(), request.getEmail(), request.getPassword());
 
         var result = _service.save(user);
@@ -67,25 +71,35 @@ public class UserController {
 
     @PutMapping(UpdateEndpoint)
     public ResponseEntity<?> UpdateUser(@RequestBody UpdateUserRequest request) {
-        var user = new User(request.getId(), request.getName(), request.getEmail(), request.getPassword());
 
-        var fetched = _service.findById(request.getId()).get();
+        var fetched = _service.findById(request.getId());
 
-        if (fetched.Equals(user)) {
-            var result = _service.save(user);
-
-            return new ResponseEntity<User>(result, HttpStatusCode.valueOf((200)));
+        if(fetched.isPresent())
+        {
+            var result = fetched.get();
+            var user = new User(request.getId(), request.getName(), request.getEmail(), request.getPassword());
+            if (result.Equals(user))
+            {
+                var item = _service.save(user);
+                return new ResponseEntity<User>(item, HttpStatusCode.valueOf((200)));
+            }
         }
 
-        return new ResponseEntity<>(HttpStatusCode.valueOf((404)));
+       return new ResponseEntity<>(HttpStatusCode.valueOf((404)));
     }
 
     @DeleteMapping(DeleteEndpoint)
     public ResponseEntity<?> DeleteUser(@RequestParam(name = IdParam) long id) {
-        User fetched = _service.findById(id).get();
-        if (fetched.Name != "") {
-            _service.delete(fetched);
-            return new ResponseEntity<User>(fetched, HttpStatusCode.valueOf((200)));
+        
+        var fetched = _service.findById(id);
+
+        if(fetched.isPresent())
+        {
+            var result = fetched.get();
+            if (result.Name != "") {
+                _service.delete(result);
+                return new ResponseEntity<User>(result, HttpStatusCode.valueOf((200)));
+            }
         }
         return new ResponseEntity<>(HttpStatusCode.valueOf((404)));
     }

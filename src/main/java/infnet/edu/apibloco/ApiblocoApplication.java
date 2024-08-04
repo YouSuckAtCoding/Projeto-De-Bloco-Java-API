@@ -10,4 +10,6 @@ public class ApiblocoApplication {
 		SpringApplication.run(ApiblocoApplication.class, args);
 	}
 
+	
+
 }

@@ -10,17 +10,17 @@ import jakarta.persistence.Table;
 public class Product extends EntityRoot
 {
     @Column(nullable = false, length = 30)
-    public String Name;
+    public String name;
     @Column(nullable = false)
-    public double Price;
+    public double price;
     @Column(nullable = false, length = 100)
-    public String Description;
+    public String description;
     
     public Product(long id, String name, double price, String description) {
         super(id);
-        Name = name;
-        Price = price;
-        Description = description;
+        this.name = name;
+        this.price = price;
+        this.description = description;
     }
     
     public Product()

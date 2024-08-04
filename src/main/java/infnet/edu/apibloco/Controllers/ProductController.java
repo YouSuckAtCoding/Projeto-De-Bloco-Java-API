@@ -37,11 +37,16 @@ public class ProductController {
     @GetMapping(GetEndpoint)
     public ResponseEntity<?> GetProducts(@RequestParam(name = IdParam) long id) {
 
-        Product fetched = _service.findById(id).get();
+        var fetched = _service.findById(id);
+        if(fetched.isPresent())
+        {
+            var result = fetched.get();
+            if (result.id > 0)
+            return new ResponseEntity<Product>(result, HttpStatusCode.valueOf((200)));
 
-        if (fetched.id > 0)
-            return new ResponseEntity<Product>(fetched, HttpStatusCode.valueOf((200)));
+        }
 
+        
         return new ResponseEntity<>(HttpStatusCode.valueOf((404)));
 
     }
@@ -71,24 +76,30 @@ public class ProductController {
 
         var product = new Product(0, request.getName(), request.getPrice(), request.getDescription());
 
-        var fetched = _service.findById(request.getId()).get();
+        var fetched = _service.findById(request.getId());
+        if(fetched.isPresent())
+        {
+            var result = fetched.get();
 
-        if (fetched.Equals(product)) {
-            var result = _service.save(product);
-
-            return new ResponseEntity<Product>(result, HttpStatusCode.valueOf((200)));
+            if (result.Equals(product)) {
+                var item = _service.save(product);
+                return new ResponseEntity<Product>(item, HttpStatusCode.valueOf((200)));
+            }
         }
-
         return new ResponseEntity<>(HttpStatusCode.valueOf((404)));
     }
 
     @DeleteMapping(DeleteEndpoint)
     public ResponseEntity<?> Deleteproduct(@RequestParam(name = IdParam) long id) {
-        Product fetched = _service.findById(id).get();
 
-        if (fetched.Name != "") {
-            _service.delete(fetched);
-            return new ResponseEntity<Product>(fetched, HttpStatusCode.valueOf((200)));
+        var fetched = _service.findById(id);
+        if(fetched.isPresent())
+        {
+            var result = fetched.get();
+            if (result.name != "") {
+                _service.delete(result);
+                return new ResponseEntity<Product>(result, HttpStatusCode.valueOf((200)));
+            }
         }
         return new ResponseEntity<>(HttpStatusCode.valueOf((404)));
     }
