@@ -9,7 +9,4 @@ public class ApiblocoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ApiblocoApplication.class, args);
 	}
-
-	
-
 }

@@ -1,9 +1,6 @@
 package infnet.edu.apibloco.Domain.Models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 
 import infnet.edu.apibloco.Domain.Primitives.EntityRoot;
 
@@ -11,19 +8,10 @@ import infnet.edu.apibloco.Domain.Primitives.EntityRoot;
 @Table(name = "Users")
 public class User extends EntityRoot{
 
-   
-
-    @NotNull(message = "Name can't be empty.")
-    @Size(max = 30)
     @Column(nullable = false, length = 30)
     public String Name;
-    @NotNull(message = "Email can't be empty.")
-    @Size(max = 30)
-    @Email
     @Column(nullable = false, length = 35)
     public String Email;
-    @NotNull(message = "Please create a password.")
-    @Size(max = 30)
     @Column(nullable = false, length = 20)    
     public String Password;
 
