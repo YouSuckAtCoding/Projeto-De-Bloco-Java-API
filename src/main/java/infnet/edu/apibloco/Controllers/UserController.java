@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatusCode;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,10 +15,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import infnet.edu.apibloco.Constants.Messages;
 import infnet.edu.apibloco.Domain.Contracts.Requests.User.CreateUserRequest;
 import infnet.edu.apibloco.Domain.Contracts.Requests.User.UpdateUserRequest;
+import infnet.edu.apibloco.Domain.Contracts.Responses.ErrorResponse;
 import infnet.edu.apibloco.Domain.Models.User;
 import infnet.edu.apibloco.Infrastructure.UserRepository;
+import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 public class UserController {
@@ -35,7 +38,8 @@ public class UserController {
     private static final String IdParam = "id";
 
     @GetMapping(GetEndpoint)
-    public ResponseEntity<?> GetUsers(@RequestParam(name = IdParam) long id) {
+    public ResponseEntity<?> GetUsers(@RequestParam(name = IdParam) long id,
+    HttpServletRequest httpServletRequest) {
 
         var fetched = _service.findById(id);
 
@@ -44,9 +48,13 @@ public class UserController {
             var result = fetched.get();
 
             if (result.id > 0)
-               return new ResponseEntity<User>(result, HttpStatusCode.valueOf((200)));
+               return new ResponseEntity<User>(result, HttpStatus.OK);
         }     
-        return new ResponseEntity<>(HttpStatusCode.valueOf((404)));
+        return new ResponseEntity<ErrorResponse>(
+            new ErrorResponse(HttpStatus.NOT_FOUND, 
+            Messages.Not_Found , 
+            httpServletRequest.getRequestURI())
+            ,HttpStatus.NOT_FOUND);
     }
 
     @GetMapping(GetAllEndpoint)
@@ -55,7 +63,7 @@ public class UserController {
         List<User> result = StreamSupport.stream(_service.findAll().spliterator(), false)
                 .collect(Collectors.toList());
 
-        return new ResponseEntity<List<User>>(result, HttpStatusCode.valueOf((200)));
+        return new ResponseEntity<List<User>>(result, HttpStatus.OK);
     }
 
     @PostMapping(CreateEndpoint)
@@ -65,12 +73,13 @@ public class UserController {
 
         var result = _service.save(user);
 
-        return new ResponseEntity<User>(result, HttpStatusCode.valueOf((201)));
+        return new ResponseEntity<User>(result, HttpStatus.CREATED);
 
     }
 
     @PutMapping(UpdateEndpoint)
-    public ResponseEntity<?> UpdateUser(@RequestBody UpdateUserRequest request) {
+    public ResponseEntity<?> UpdateUser(@RequestBody UpdateUserRequest request,
+     HttpServletRequest httpServletRequest) {
 
         var fetched = _service.findById(request.getId());
 
@@ -81,26 +90,35 @@ public class UserController {
             if (result.Equals(user))
             {
                 var item = _service.save(user);
-                return new ResponseEntity<User>(item, HttpStatusCode.valueOf((200)));
+                return new ResponseEntity<User>(item, HttpStatus.OK);
             }
         }
 
-       return new ResponseEntity<>(HttpStatusCode.valueOf((404)));
+        return new ResponseEntity<ErrorResponse>(
+            new ErrorResponse(HttpStatus.NOT_FOUND, 
+            Messages.Not_Found , 
+            httpServletRequest.getRequestURI())
+            ,HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping(DeleteEndpoint)
-    public ResponseEntity<?> DeleteUser(@RequestParam(name = IdParam) long id) {
+    public ResponseEntity<?> DeleteUser(@RequestParam(name = IdParam) long id,
+     HttpServletRequest httpServletRequest) {
         
         var fetched = _service.findById(id);
 
         if(fetched.isPresent())
         {
             var result = fetched.get();
-            if (result.Name != "") {
+            if (!result.Name.isEmpty()) {
                 _service.delete(result);
-                return new ResponseEntity<User>(result, HttpStatusCode.valueOf((200)));
+                return new ResponseEntity<User>(result, HttpStatus.OK);
             }
         }
-        return new ResponseEntity<>(HttpStatusCode.valueOf((404)));
+         return new ResponseEntity<ErrorResponse>(
+            new ErrorResponse(HttpStatus.NOT_FOUND, 
+            Messages.Not_Found , 
+            httpServletRequest.getRequestURI())
+            ,HttpStatus.NOT_FOUND);
     }
 }
