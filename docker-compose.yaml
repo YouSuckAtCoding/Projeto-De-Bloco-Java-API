@@ -1,6 +1,6 @@
 services:
-  mysql:
-    container_name: 'mysqlcontainer'
+  apidb:
+    container_name: 'apidatabase'
     image: 'mysql:latest'
     environment:
       - 'MYSQL_DATABASE=pbdatabase'
@@ -9,3 +9,23 @@ services:
       - 'MYSQL_USER=myuser'
     ports:
       - '3306:3306'
+  api:
+    container_name: 'apibloco_container'
+    image: 'apibloco:latest'
+    ports:
+      - 8086:8086 
+    restart: unless-stopped
+    
+  rabbitmq:
+    container_name: 'rabbit'
+    image: 'rabbitmq:3.13.7-management'
+    environment:
+      - 'RABBITMQ_DEFAULT_PASS=secret'
+      - 'RABBITMQ_DEFAULT_USER=myuser'
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    
+
+
+        
