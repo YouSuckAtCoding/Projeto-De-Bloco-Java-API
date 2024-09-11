@@ -16,11 +16,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import infnet.edu.apibloco.Constants.Messages;
+import infnet.edu.apibloco.Domain.Contracts.Email.SendEmailRequest;
 import infnet.edu.apibloco.Domain.Contracts.Requests.User.CreateUserRequest;
 import infnet.edu.apibloco.Domain.Contracts.Requests.User.UpdateUserRequest;
 import infnet.edu.apibloco.Domain.Contracts.Responses.ErrorResponse;
 import infnet.edu.apibloco.Domain.Models.User;
+import infnet.edu.apibloco.Email.OperationType;
+import infnet.edu.apibloco.Email.UserEmailFactory;
 import infnet.edu.apibloco.Infrastructure.UserRepository;
+import infnet.edu.apibloco.Infrastructure.Services.EmailSenderService;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
@@ -28,6 +32,9 @@ public class UserController {
 
     @Autowired
     private UserRepository _service;
+
+    @Autowired  
+    private EmailSenderService _emailService;
 
     private static final String Base = "api/user";
     private static final String GetEndpoint = Base;
@@ -69,13 +76,20 @@ public class UserController {
     @PostMapping(CreateEndpoint)
     public ResponseEntity<?> CreateUser(@RequestBody CreateUserRequest request) {
 
-        var user = new User(0, request.getName(), request.getEmail(), request.getPassword());
+        var user = new User(0, 
+        request.getName(), 
+        request.getEmail(), 
+        request.getPassword());
 
         var result = _service.save(user);
 
-        return new ResponseEntity<User>(result, HttpStatus.CREATED);
+        SendEmailRequest emailRequest = UserEmailFactory.CreateUserEmailRequest(result, OperationType.Create);
 
+        _emailService.SendEmail(emailRequest);
+
+        return new ResponseEntity<User>(result, HttpStatus.CREATED);
     }
+
 
     @PutMapping(UpdateEndpoint)
     public ResponseEntity<?> UpdateUser(@RequestBody UpdateUserRequest request,
@@ -90,6 +104,11 @@ public class UserController {
             if (result.Equals(user))
             {
                 var item = _service.save(user);
+                
+                SendEmailRequest emailRequest = UserEmailFactory.CreateUserEmailRequest(result, OperationType.Update);
+
+                _emailService.SendEmail(emailRequest);
+               
                 return new ResponseEntity<User>(item, HttpStatus.OK);
             }
         }
@@ -111,7 +130,13 @@ public class UserController {
         {
             var result = fetched.get();
             if (!result.Name.isEmpty()) {
+
                 _service.delete(result);
+
+                SendEmailRequest emailRequest = UserEmailFactory.CreateUserEmailRequest(result, OperationType.Delete);
+
+                _emailService.SendEmail(emailRequest);
+        
                 return new ResponseEntity<User>(result, HttpStatus.OK);
             }
         }
