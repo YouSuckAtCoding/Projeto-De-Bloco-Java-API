@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import infnet.edu.apibloco.Constants.Messages;
 import infnet.edu.apibloco.Domain.Contracts.Email.SendEmailRequest;
 import infnet.edu.apibloco.Domain.Contracts.Requests.User.CreateUserRequest;
@@ -25,6 +26,7 @@ import infnet.edu.apibloco.Email.OperationType;
 import infnet.edu.apibloco.Email.UserEmailFactory;
 import infnet.edu.apibloco.Infrastructure.UserRepository;
 import infnet.edu.apibloco.Infrastructure.Services.EmailSenderService;
+import infnet.edu.apibloco.Messaging.QueueSender;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
@@ -32,6 +34,8 @@ public class UserController {
 
     @Autowired
     private UserRepository _service;
+    @Autowired 
+    private QueueSender _queueSender;
 
     @Autowired  
     private EmailSenderService _emailService;
@@ -74,7 +78,7 @@ public class UserController {
     }
 
     @PostMapping(CreateEndpoint)
-    public ResponseEntity<?> CreateUser(@RequestBody CreateUserRequest request) {
+    public ResponseEntity<?> CreateUser(@RequestBody CreateUserRequest request) throws JsonProcessingException {
 
         var user = new User(0, 
         request.getName(), 
@@ -84,9 +88,8 @@ public class UserController {
         var result = _service.save(user);
 
         SendEmailRequest emailRequest = UserEmailFactory.CreateUserEmailRequest(result, OperationType.Create);
-
-        _emailService.SendEmail(emailRequest);
-
+        _queueSender.send(emailRequest);
+        
         return new ResponseEntity<User>(result, HttpStatus.CREATED);
     }
 

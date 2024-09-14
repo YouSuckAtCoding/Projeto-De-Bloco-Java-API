@@ -15,5 +15,7 @@ public class SenderConfig {
     @Bean
     public Queue queue() {
         return new Queue(message, true);
-    }
+    } 
+    
+
 }

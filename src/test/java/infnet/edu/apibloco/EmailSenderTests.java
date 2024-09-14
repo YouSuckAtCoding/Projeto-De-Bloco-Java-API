@@ -11,6 +11,7 @@ import infnet.edu.apibloco.Infrastructure.Services.EmailSenderService;
 @SpringBootTest
 public class EmailSenderTests {
 
+
     @Autowired
     private EmailSenderService _service;
 
@@ -30,5 +31,6 @@ public class EmailSenderTests {
 		})
 		.verifyComplete();
     }
+
 
 }
