@@ -4,7 +4,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
-@Component  
+@Component
 public class QueueConsumer {
 
     @RabbitListener(queues = "${queue.name}")
@@ -12,5 +12,4 @@ public class QueueConsumer {
     {
         System.out.println("Message " + fileBody);
     }
-
 }
