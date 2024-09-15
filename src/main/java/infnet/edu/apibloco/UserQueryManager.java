@@ -25,19 +25,19 @@ public class UserQueryManager {
 
     @EventHandler
     void on(CreateUserEvent event) {
-        persistAccount(buildQueryAccount(getAccountFromEvent(event)));
+        persistUser(buildQueryUser(getUserFromEvent(event)));
     }
 
-    private UserAggregate getAccountFromEvent(Event<String> event) {
+    private UserAggregate getUserFromEvent(Event<String> event) {
         return userAggregateEventSourcingRepository.load(event.id.toString()).getWrappedAggregate().getAggregateRoot();
     }
 
-    private User findExistingOrCreateQueryAccount(String id) {
+    private User findExistingOrCreateQueryUser(String id) {
         return _repository.findById(id).isPresent() ? _repository.findById(id).get() : new User();
     }
 
-    private User buildQueryAccount(UserAggregate UserAggregate) {
-        User user = findExistingOrCreateQueryAccount(UserAggregate.getId());
+    private User buildQueryUser(UserAggregate UserAggregate) {
+        User user = findExistingOrCreateQueryUser(UserAggregate.getId());
 
         user.id = (UserAggregate.getId());
         user.Name = (UserAggregate.getName());
@@ -47,7 +47,7 @@ public class UserQueryManager {
         return user;
     }
 
-    private void persistAccount(User User) {
+    private void persistUser(User User) {
         _repository.save(User);
     }
 

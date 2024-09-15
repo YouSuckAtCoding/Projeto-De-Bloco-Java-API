@@ -1,6 +1,7 @@
 package infnet.edu.apibloco.Controllers;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import infnet.edu.apibloco.Commands.Product.Services.IProductCommandService;
 import infnet.edu.apibloco.Constants.Messages;
+import infnet.edu.apibloco.Domain.Aggreagates.ProductAggregate;
 import infnet.edu.apibloco.Domain.Contracts.Requests.Products.CreateProductRequest;
 import infnet.edu.apibloco.Domain.Contracts.Requests.Products.UpdateProductRequest;
 import infnet.edu.apibloco.Domain.Contracts.Responses.ErrorResponse;
@@ -36,6 +39,9 @@ public class ProductController {
 
     @Autowired
     private ProductRepository _service;
+
+    @Autowired
+    private IProductCommandService _CommandService;
 
     @GetMapping(GetEndpoint)
     public ResponseEntity<?> GetProduct(@RequestParam(name = IdParam) String id, 
@@ -69,16 +75,15 @@ public class ProductController {
     }
 
     @PostMapping(CreateEndpoint)
-    public ResponseEntity<?> CreateProduct(@RequestBody CreateProductRequest request) {
+    public CompletableFuture<String> CreateProduct(@RequestBody CreateProductRequest request) {
 
-        var product = new Product("", request.getName(), request.getPrice(), request.getDescription());
+        var product = new ProductAggregate("", request.getName(), request.getPrice(), request.getDescription());
 
-        var result = _service.save(product);
+        var result = _CommandService.CreateProduct(product);
 
-        return new ResponseEntity<Product>(result, HttpStatus.CREATED);
-
+        return result;
     }
-
+    
     @PutMapping(UpdateEndpoint)
     public ResponseEntity<?> Updateproduct(@RequestBody UpdateProductRequest request,
      HttpServletRequest httpServletRequest) {

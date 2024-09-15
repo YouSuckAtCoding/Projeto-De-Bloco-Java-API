@@ -31,7 +31,6 @@ import infnet.edu.apibloco.Email.UserEmailFactory;
 import infnet.edu.apibloco.Infrastructure.UserRepository;
 import infnet.edu.apibloco.Infrastructure.Services.EmailSenderService;
 import infnet.edu.apibloco.Messaging.QueueSender;
-import infnet.edu.apibloco.Queries.IUserQueryService;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
