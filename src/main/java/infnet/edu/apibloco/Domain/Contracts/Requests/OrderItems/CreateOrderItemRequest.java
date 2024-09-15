@@ -2,20 +2,20 @@ package infnet.edu.apibloco.Domain.Contracts.Requests.OrderItems;
 
 public class CreateOrderItemRequest {
 
-    private long orderId;
-    private long productId;
+    private String orderId;
+    private String productId;
     private int quantity;
-    public long getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
-    public void setOrderId(long orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
     
-    public long getProductId() {
+    public String getProductId() {
         return productId;
     }
-    public void setProductId(long productId) {
+    public void setProductId(String productId) {
         this.productId = productId;
     }
    

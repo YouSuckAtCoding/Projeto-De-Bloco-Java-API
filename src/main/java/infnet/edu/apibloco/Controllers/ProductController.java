@@ -38,14 +38,14 @@ public class ProductController {
     private ProductRepository _service;
 
     @GetMapping(GetEndpoint)
-    public ResponseEntity<?> GetProduct(@RequestParam(name = IdParam) long id, 
+    public ResponseEntity<?> GetProduct(@RequestParam(name = IdParam) String id, 
     HttpServletRequest httpServletRequest) {
 
         var fetched = _service.findById(id);
         if(fetched.isPresent())
         {
             var result = fetched.get();
-            if (result.id > 0)
+            if (!result.id.isEmpty())
             return new ResponseEntity<Product>(result, HttpStatus.OK);
 
         }
@@ -71,7 +71,7 @@ public class ProductController {
     @PostMapping(CreateEndpoint)
     public ResponseEntity<?> CreateProduct(@RequestBody CreateProductRequest request) {
 
-        var product = new Product(0, request.getName(), request.getPrice(), request.getDescription());
+        var product = new Product("", request.getName(), request.getPrice(), request.getDescription());
 
         var result = _service.save(product);
 
@@ -83,7 +83,7 @@ public class ProductController {
     public ResponseEntity<?> Updateproduct(@RequestBody UpdateProductRequest request,
      HttpServletRequest httpServletRequest) {
 
-        var product = new Product(0, request.getName(), request.getPrice(), request.getDescription());
+        var product = new Product("", request.getName(), request.getPrice(), request.getDescription());
 
         var fetched = _service.findById(request.getId());
         if(fetched.isPresent())
@@ -103,7 +103,7 @@ public class ProductController {
     }
 
     @DeleteMapping(DeleteEndpoint)
-    public ResponseEntity<?> Deleteproduct(@RequestParam(name = IdParam) long id,
+    public ResponseEntity<?> Deleteproduct(@RequestParam(name = IdParam) String id,
      HttpServletRequest httpServletRequest) {
 
         var fetched = _service.findById(id);

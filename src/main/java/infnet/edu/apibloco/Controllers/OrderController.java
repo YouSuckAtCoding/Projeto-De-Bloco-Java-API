@@ -39,14 +39,14 @@ public class OrderController {
     private UserRepository _userService;
 
     @GetMapping(GetEndpoint)
-    public ResponseEntity<?> GetOrder(@RequestParam(name = IdParam) long id, HttpServletRequest httpServletRequest) {
+    public ResponseEntity<?> GetOrder(@RequestParam(name = IdParam) String id, HttpServletRequest httpServletRequest) {
 
         var fetched = _service.findById(id);
 
         if(fetched.isPresent())
         {
             var result = fetched.get();
-            if (result.id > 0)
+            if (!result.id.isEmpty())
                 return new ResponseEntity<Order>(result, HttpStatus.OK);
         }
         
@@ -60,14 +60,14 @@ public class OrderController {
     }
 
     @GetMapping(GetAllEndpoint)
-    public ResponseEntity<?> GetOrders(@RequestParam(name = UserIdParam) long id, HttpServletRequest httpServletRequest) {
+    public ResponseEntity<?> GetOrders(@RequestParam(name = UserIdParam) String id, HttpServletRequest httpServletRequest) {
 
         var fetched = _userService.findById(id);
         
         if(fetched.isPresent())
         {
             var result = fetched.get();
-            if (result.id > 0) {
+            if (!result.id.isEmpty()) {
                 List<Order> items = StreamSupport.stream(_service.findOrdersByUser(id).spliterator(), false)
                         .collect(Collectors.toList());
     
@@ -89,7 +89,7 @@ public class OrderController {
 
         if(fetched.isPresent())
         {
-            var order = new Order(0, fetched.get(), request.getOrder_Date(), 10.5);
+            var order = new Order("", fetched.get(), request.getOrder_Date(), 10.5);
 
             var result = _service.save(order);
     
@@ -103,14 +103,14 @@ public class OrderController {
     }
 
     @DeleteMapping(DeleteEndpoint)
-    public ResponseEntity<?> DeleteOrder(@RequestParam(name = IdParam) long id, HttpServletRequest httpServletRequest) {
+    public ResponseEntity<?> DeleteOrder(@RequestParam(name = IdParam) String id, HttpServletRequest httpServletRequest) {
      
         var fetched = _service.findById(id);
 
         if(fetched.isPresent())
         {
             var result = fetched.get();
-            if (result.id > 0) {
+            if (!result.id.isEmpty()) {
                 _service.delete(result);
                 return new ResponseEntity<Order>(result, HttpStatus.OK);
             }

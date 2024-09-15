@@ -15,7 +15,7 @@ public class User extends EntityRoot{
     @Column(nullable = false, length = 20)    
     public String Password;
 
-    public User(long id, String name, String email, String password) {
+    public User(String id, String name, String email, String password) {
         super(id);
         this.Name = name;
         this.Email = email;

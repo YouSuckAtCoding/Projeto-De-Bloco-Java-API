@@ -16,8 +16,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+
+import infnet.edu.apibloco.Commands.IUserCommandService;
+import infnet.edu.apibloco.Commands.UserCommandService;
 import infnet.edu.apibloco.Constants.Messages;
+import infnet.edu.apibloco.Domain.Aggreagates.UserAggregate;
 import infnet.edu.apibloco.Domain.Contracts.Email.SendEmailRequest;
+import java.util.concurrent.CompletableFuture;
 import infnet.edu.apibloco.Domain.Contracts.Requests.User.CreateUserRequest;
 import infnet.edu.apibloco.Domain.Contracts.Requests.User.UpdateUserRequest;
 import infnet.edu.apibloco.Domain.Contracts.Responses.ErrorResponse;
@@ -36,6 +41,9 @@ public class UserController {
     private UserRepository _service;
     @Autowired 
     private QueueSender _queueSender;
+  
+    @Autowired
+    private IUserCommandService _CommandService;
 
     @Autowired  
     private EmailSenderService _emailService;
@@ -49,7 +57,7 @@ public class UserController {
     private static final String IdParam = "id";
 
     @GetMapping(GetEndpoint)
-    public ResponseEntity<?> GetUsers(@RequestParam(name = IdParam) long id,
+    public ResponseEntity<?> GetUsers(@RequestParam(name = IdParam) String id,
     HttpServletRequest httpServletRequest) {
 
         var fetched = _service.findById(id);
@@ -58,7 +66,7 @@ public class UserController {
         
             var result = fetched.get();
 
-            if (result.id > 0)
+            if (!result.id.isEmpty())
                return new ResponseEntity<User>(result, HttpStatus.OK);
         }     
         return new ResponseEntity<ErrorResponse>(
@@ -78,19 +86,19 @@ public class UserController {
     }
 
     @PostMapping(CreateEndpoint)
-    public ResponseEntity<?> CreateUser(@RequestBody CreateUserRequest request) throws JsonProcessingException {
+    public CompletableFuture<String> CreateUser(@RequestBody CreateUserRequest request) throws JsonProcessingException {
 
-        var user = new User(0, 
+        var user = new UserAggregate("", 
         request.getName(), 
         request.getEmail(), 
         request.getPassword());
 
-        var result = _service.save(user);
+        var result = _CommandService.CreatePedido(user);
 
-        SendEmailRequest emailRequest = UserEmailFactory.CreateUserEmailRequest(result, OperationType.Create);
+        SendEmailRequest emailRequest = UserEmailFactory.CreateUserEmailRequest(user, OperationType.Create);
         _queueSender.send(emailRequest);
         
-        return new ResponseEntity<User>(result, HttpStatus.CREATED);
+        return result;
     }
 
 
@@ -124,7 +132,7 @@ public class UserController {
     }
 
     @DeleteMapping(DeleteEndpoint)
-    public ResponseEntity<?> DeleteUser(@RequestParam(name = IdParam) long id,
+    public ResponseEntity<?> DeleteUser(@RequestParam(name = IdParam) String id,
      HttpServletRequest httpServletRequest) {
         
         var fetched = _service.findById(id);

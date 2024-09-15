@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import infnet.edu.apibloco.Domain.Models.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, String> {
 
 }

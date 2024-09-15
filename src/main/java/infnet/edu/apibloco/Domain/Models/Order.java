@@ -20,7 +20,7 @@ public class Order extends AggregateRoot{
     @Column(name = "total")
     public double total;
     
-    public Order(long id, User buyer, LocalDateTime order_Date, double total) {
+    public Order(String id, User buyer, LocalDateTime order_Date, double total) {
         super(id);
         this.user = buyer;
         this.order_Date = order_Date;

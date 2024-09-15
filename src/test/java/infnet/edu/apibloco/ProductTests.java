@@ -27,7 +27,7 @@ public class ProductTests {
     @Test
     void Should_Create_Product_In_ProductRepository()
     {
-        var product = new Product(0, ProductName, ProductPrice, ProductDescription);
+        var product = new Product("", ProductName, ProductPrice, ProductDescription);
 
         var created = _productRepository.save(product);
         var result = _productRepository.findById(created.id).get();
@@ -38,7 +38,7 @@ public class ProductTests {
     @Test
     void Should_Delete_Product_From_ProductRepository()
     {
-        var product = new Product(0, ProductName, 50.0, ProductDescription);
+        var product = new Product("", ProductName, 50.0, ProductDescription);
 
         var created = _productRepository.save(product);
         _productRepository.delete(created);
@@ -52,7 +52,7 @@ public class ProductTests {
     void Should_Update_Product_In_ProductRepository()
     {
         String newName = "Product123";
-        var product = new Product(0, ProductName, 50.0, ProductDescription);
+        var product = new Product("", ProductName, 50.0, ProductDescription);
         
         var created = _productRepository.save(product);
         created.name = newName;

@@ -43,7 +43,7 @@ public class OrderItemController {
     private ProductRepository _productService;
 
     @GetMapping(GetEndpoint)
-    public ResponseEntity<?> GetOrderItem(@RequestParam(name = IdParam) long id, 
+    public ResponseEntity<?> GetOrderItem(@RequestParam(name = IdParam) String id, 
     HttpServletRequest httpServletRequest) {
 
         var fetched = _service.findById(id);
@@ -51,7 +51,7 @@ public class OrderItemController {
         if(fetched.isPresent())
         {
             OrderItem result= fetched.get();
-            if (result.id > 0)
+            if (!result.id.isEmpty())
                 return new ResponseEntity<OrderItem>(result, HttpStatus.OK);
 
         }
@@ -65,7 +65,7 @@ public class OrderItemController {
     }
 
     @GetMapping(GetAllEndpoint)
-    public ResponseEntity<?> GetOrderItems(@RequestParam(name = IdParam) long id
+    public ResponseEntity<?> GetOrderItems(@RequestParam(name = IdParam) String id
     ,HttpServletRequest httpServletRequest) {
 
         var fetched = _orderService.findById(id);
@@ -73,7 +73,7 @@ public class OrderItemController {
         if(fetched.isPresent())
         {
             var result = fetched.get();
-            if (result.id > 0) {
+            if (!result.id.isEmpty()) {
                 List<OrderItem> items = StreamSupport.stream(_service.findOrderItemsByOrder(id).spliterator(), false)
                         .collect(Collectors.toList());
     
@@ -97,13 +97,13 @@ public class OrderItemController {
         if(fetched.isPresent())
         {
             var result = fetched.get();
-            if(result.id > 0)
+            if(!result.id.isEmpty())
             {
                 var product = _productService.findById(request.getProductId()).get();
     
-                if(product.id > 0)
+                if(!result.id.isEmpty())
                 {
-                    var OrderItem = new OrderItem(0, result, product, product.price, request.getQuantity());
+                    var OrderItem = new OrderItem("", result, product, product.price, request.getQuantity());
         
                     var item = _service.save(OrderItem);
 
@@ -123,7 +123,7 @@ public class OrderItemController {
     }
 
     @DeleteMapping(DeleteEndpoint)
-    public ResponseEntity<?> DeleteOrderItem(@RequestParam(name = IdParam) long id,
+    public ResponseEntity<?> DeleteOrderItem(@RequestParam(name = IdParam) String id,
     HttpServletRequest httpServletRequest) {
      
         var fetched = _service.findById(id);
@@ -132,7 +132,7 @@ public class OrderItemController {
         if(fetched.isPresent())
         {
             var result = fetched.get();
-            if(result.id > 0)
+            if(!result.id.isEmpty())
             {
                 _service.delete(result);
                 return new ResponseEntity<OrderItem>(result, HttpStatus.OK);

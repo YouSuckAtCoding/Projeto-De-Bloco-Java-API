@@ -16,7 +16,7 @@ public class Product extends EntityRoot
     @Column(nullable = false, length = 100)
     public String description;
     
-    public Product(long id, String name, double price, String description) {
+    public Product(String id, String name, double price, String description) {
         super(id);
         this.name = name;
         this.price = price;

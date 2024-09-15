@@ -7,15 +7,15 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class CreateOrderRequest {
 
-    public long userId;
+    public String userId;
     
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     public LocalDateTime order_Date;
 
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
-    public void setUserId(long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
     public LocalDateTime getOrder_Date() {

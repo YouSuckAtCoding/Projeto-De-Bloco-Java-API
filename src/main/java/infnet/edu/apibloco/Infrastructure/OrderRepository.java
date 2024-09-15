@@ -12,10 +12,10 @@ import infnet.edu.apibloco.Domain.Models.Order;
 import jakarta.transaction.Transactional;
 
 @Repository
-public interface OrderRepository extends JpaRepository<Order, Long>{
+public interface OrderRepository extends JpaRepository<Order, String>{
 
     @Query("select o from Order o where o.user = :userId")
-    List<Order> findOrdersByUser(@Param("userId") long userId);
+    List<Order> findOrdersByUser(@Param("userId") String userId);
 
     @Modifying
     @Transactional
@@ -27,6 +27,6 @@ public interface OrderRepository extends JpaRepository<Order, Long>{
                 ") oi ON o.id = oi.ord\r\n" + //
                 "SET o.total = oi.total_price\r\n" + //
                 "WHERE o.id = :orderId")
-    void updateOrderTotal(@Param("orderId") long orderId );
+    void updateOrderTotal(@Param("orderId") String orderId );
     
 }

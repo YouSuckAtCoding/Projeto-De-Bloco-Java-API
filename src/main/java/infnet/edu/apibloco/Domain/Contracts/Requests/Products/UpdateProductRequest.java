@@ -1,14 +1,16 @@
 package infnet.edu.apibloco.Domain.Contracts.Requests.Products;
 
 public class UpdateProductRequest {
-    public long id;
+    
+    public String id;
     public String name;
     public double price;
     public String description;
-    public long getId() {
+    
+    public String getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getName() {

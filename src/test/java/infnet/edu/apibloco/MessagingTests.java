@@ -25,7 +25,7 @@ public class MessagingTests
     @Test
     void Should_Send_EmailRequest_As_Message_To_Queue() throws JsonProcessingException
     {
-        var user = new User(0, 
+        var user = new User("", 
         userName, 
         userEmail, 
         userPassword);

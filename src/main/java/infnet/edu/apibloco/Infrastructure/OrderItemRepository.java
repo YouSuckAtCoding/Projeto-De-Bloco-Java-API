@@ -7,11 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+
 import infnet.edu.apibloco.Domain.Models.OrderItem;
 
 @Repository
-public interface OrderItemRepository extends JpaRepository<OrderItem, Long>{
+public interface OrderItemRepository extends JpaRepository<OrderItem, String>{
 
     @Query("select o from OrderItem o where o.order = :orderId")
-    List<OrderItem> findOrderItemsByOrder(@Param("orderId") long orderId);
+    List<OrderItem> findOrderItemsByOrder(@Param("orderId") String orderId);
 }

@@ -19,7 +19,7 @@ public class OrderItem extends AggregateRoot{
     public double price;
     @Column(nullable = false, name= "quantity")
     public int quantity;
-    public OrderItem(long id, Order order, Product product, double price, int quantity) {
+    public OrderItem(String id, Order order, Product product, double price, int quantity) {
         super(id);
         this.order = order;
         this.product = product;

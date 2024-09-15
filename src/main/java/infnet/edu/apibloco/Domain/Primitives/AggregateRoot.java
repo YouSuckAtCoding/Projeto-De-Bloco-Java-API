@@ -2,7 +2,7 @@ package infnet.edu.apibloco.Domain.Primitives;
 
 public class AggregateRoot extends EntityRoot{
 
-    protected AggregateRoot(long id) {
+    protected AggregateRoot(String id) {
         super(id);    
     }
 
