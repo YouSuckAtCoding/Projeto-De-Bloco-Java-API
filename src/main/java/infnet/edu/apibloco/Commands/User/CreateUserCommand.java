@@ -1,4 +1,4 @@
-package infnet.edu.apibloco.Commands;
+package infnet.edu.apibloco.Commands.User;
 
 import infnet.edu.apibloco.Domain.Primitives.Command;
 

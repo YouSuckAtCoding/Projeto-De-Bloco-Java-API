@@ -1,12 +1,13 @@
 package infnet.edu.apibloco;
 
-import org.axonframework.eventsourcing.EventSourcingHandler;
+import org.axonframework.eventhandling.EventHandler;
 import org.axonframework.eventsourcing.EventSourcingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import infnet.edu.apibloco.Domain.Aggreagates.UserAggregate;
+import infnet.edu.apibloco.Domain.Events.CreateUserEvent;
 import infnet.edu.apibloco.Domain.Models.User;
 import infnet.edu.apibloco.Domain.Primitives.Event;
 import infnet.edu.apibloco.Infrastructure.UserRepository;
@@ -21,20 +22,21 @@ public class UserQueryManager {
     @Qualifier("userAggregateEventSourcingRepository")
     private EventSourcingRepository<UserAggregate> userAggregateEventSourcingRepository;
 
-    @EventSourcingHandler
-    void on(Event<String> event){
+
+    @EventHandler
+    void on(CreateUserEvent event) {
         persistAccount(buildQueryAccount(getAccountFromEvent(event)));
     }
 
-    private UserAggregate getAccountFromEvent(Event<String> event){
+    private UserAggregate getAccountFromEvent(Event<String> event) {
         return userAggregateEventSourcingRepository.load(event.id.toString()).getWrappedAggregate().getAggregateRoot();
     }
 
-    private User findExistingOrCreateQueryAccount(String id){
+    private User findExistingOrCreateQueryAccount(String id) {
         return _repository.findById(id).isPresent() ? _repository.findById(id).get() : new User();
     }
 
-    private User buildQueryAccount(UserAggregate UserAggregate){
+    private User buildQueryAccount(UserAggregate UserAggregate) {
         User user = findExistingOrCreateQueryAccount(UserAggregate.getId());
 
         user.id = (UserAggregate.getId());
@@ -45,7 +47,7 @@ public class UserQueryManager {
         return user;
     }
 
-    private void persistAccount(User User){
+    private void persistAccount(User User) {
         _repository.save(User);
     }
 

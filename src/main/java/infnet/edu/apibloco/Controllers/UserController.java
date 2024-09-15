@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import infnet.edu.apibloco.Commands.IUserCommandService;
-import infnet.edu.apibloco.Commands.UserCommandService;
+import infnet.edu.apibloco.Commands.User.Services.IUserCommandService;
 import infnet.edu.apibloco.Constants.Messages;
 import infnet.edu.apibloco.Domain.Aggreagates.UserAggregate;
 import infnet.edu.apibloco.Domain.Contracts.Email.SendEmailRequest;
@@ -45,7 +44,7 @@ public class UserController {
   
     @Autowired
     private IUserCommandService _CommandService;
-    
+
     @Autowired  
     private EmailSenderService _emailService;
 
@@ -94,7 +93,7 @@ public class UserController {
         request.getEmail(), 
         request.getPassword());
 
-        var result = _CommandService.CreatePedido(user);
+        var result = _CommandService.CreateUser(user);
 
         SendEmailRequest emailRequest = UserEmailFactory.CreateUserEmailRequest(user, OperationType.Create);
         _queueSender.send(emailRequest);

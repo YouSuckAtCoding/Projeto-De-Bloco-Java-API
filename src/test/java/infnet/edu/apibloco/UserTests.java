@@ -1,5 +1,7 @@
 package infnet.edu.apibloco;
 
+import java.util.UUID;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,7 +29,7 @@ public class UserTests {
     @Test
 	void Should_Insert_User_In_UserRepository()
     {
-        var user = new User("", userName, userEmail, userPassword);
+        var user = new User(UUID.randomUUID().toString(), userName, userEmail, userPassword);
 
         var created = _userRepository.save(user);
         var result = _userRepository.findById(created.id);
@@ -49,7 +51,7 @@ public class UserTests {
     void Should_Update_User_In_UserRepository()
     {
       
-        var user = new User("",userName, userEmail, userPassword);
+        var user = new User(UUID.randomUUID().toString(),userName, userEmail, userPassword);
 
         var created = _userRepository.save(user);
         created.Name = "Teste666";
