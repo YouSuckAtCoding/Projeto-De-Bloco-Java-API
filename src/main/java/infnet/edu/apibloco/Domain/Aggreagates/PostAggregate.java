@@ -6,41 +6,45 @@ import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.modelling.command.AggregateLifecycle;
 import org.axonframework.spring.stereotype.Aggregate;
 
-import infnet.edu.apibloco.Commands.Product.CreateProductCommand;
-import infnet.edu.apibloco.Domain.Events.CreateProductEvent;
+import infnet.edu.apibloco.Commands.Post.CreatePostCommand;
+import infnet.edu.apibloco.Domain.Events.CreatePostEvent;
+import infnet.edu.apibloco.Domain.Models.User;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Aggregate
-public class ProductAggregate {
+public class PostAggregate {
 
     @AggregateIdentifier
     public String id;
-    public String name;  
-    public double price;
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    public User user;
     public String description;
     
-    public ProductAggregate()
-    {}
-
-    public ProductAggregate(String id, String name, double price, String description) {
+    public PostAggregate(String id, User user, String description) {
         this.id = id;
-        this.name = name;
-        this.price = price;
+        this.user = user;
         this.description = description;
     }
 
+
+    public PostAggregate()
+    {}
+
+  
     @CommandHandler
-    public ProductAggregate(CreateProductCommand command)
+    public PostAggregate(CreatePostCommand command)
     {
-        AggregateLifecycle.apply(new CreateProductEvent(command.id,
-        command.name, command.price, command.description));
+        AggregateLifecycle.apply(new CreatePostEvent(command.id,
+        command.user, command.description));
     }
 
     @EventSourcingHandler
-    protected void on(CreateProductEvent event)
+    protected void on(CreatePostEvent event)
     {
         this.id = event.id;
-        this.name = event.name;
-        this.price = event.price;
+        this.user = event.user;
         this.description = event.description;
 
     }
@@ -49,31 +53,32 @@ public class ProductAggregate {
         return id;
     }
 
+
     public void setId(String id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+
+    public User getUser() {
+        return user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 
     public String getDescription() {
         return description;
     }
 
+
     public void setDescription(String description) {
         this.description = description;
     }
+
+
+
+
 }

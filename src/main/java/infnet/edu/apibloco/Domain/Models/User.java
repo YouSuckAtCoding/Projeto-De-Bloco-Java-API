@@ -1,7 +1,6 @@
 package infnet.edu.apibloco.Domain.Models;
 
 import jakarta.persistence.*;
-
 import infnet.edu.apibloco.Domain.Primitives.EntityRoot;
 
 @Entity

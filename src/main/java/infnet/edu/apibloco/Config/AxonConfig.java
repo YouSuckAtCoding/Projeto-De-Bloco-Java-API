@@ -5,7 +5,7 @@ import org.axonframework.eventsourcing.eventstore.EventStore;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import infnet.edu.apibloco.Domain.Aggreagates.ProductAggregate;
+import infnet.edu.apibloco.Domain.Aggreagates.PostAggregate;
 import infnet.edu.apibloco.Domain.Aggreagates.UserAggregate;
 
 @Configuration
@@ -18,8 +18,8 @@ public class AxonConfig {
     }
 
     @Bean
-    EventSourcingRepository<ProductAggregate> productAggregateEventSourcingRepository(EventStore eventStore){
-        EventSourcingRepository<ProductAggregate> repository = EventSourcingRepository.builder(ProductAggregate.class).eventStore(eventStore).build();
+    EventSourcingRepository<PostAggregate> postAggregateEventSourcingRepository(EventStore eventStore){
+        EventSourcingRepository<PostAggregate> repository = EventSourcingRepository.builder(PostAggregate.class).eventStore(eventStore).build();
         return repository;
     }
 }

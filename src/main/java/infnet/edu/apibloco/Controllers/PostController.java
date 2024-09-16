@@ -16,18 +16,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import infnet.edu.apibloco.Commands.Product.Services.IProductCommandService;
+import infnet.edu.apibloco.Commands.Post.Services.IPostCommandService;
 import infnet.edu.apibloco.Constants.Messages;
-import infnet.edu.apibloco.Domain.Aggreagates.ProductAggregate;
-import infnet.edu.apibloco.Domain.Contracts.Requests.Products.CreateProductRequest;
-import infnet.edu.apibloco.Domain.Contracts.Requests.Products.UpdateProductRequest;
+import infnet.edu.apibloco.Domain.Aggreagates.PostAggregate;
+import infnet.edu.apibloco.Domain.Contracts.Requests.Products.CreatePostRequest;
+import infnet.edu.apibloco.Domain.Contracts.Requests.Products.UpdatePostRequest;
 import infnet.edu.apibloco.Domain.Contracts.Responses.ErrorResponse;
-import infnet.edu.apibloco.Domain.Models.Product;
-import infnet.edu.apibloco.Infrastructure.ProductRepository;
+import infnet.edu.apibloco.Domain.Models.Post;
+import infnet.edu.apibloco.Infrastructure.PostRepository;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
-public class ProductController {
+public class PostController {
 
     private static final String Base = "api/product";
     private static final String GetEndpoint = Base;
@@ -38,13 +38,13 @@ public class ProductController {
     private static final String IdParam = "id";
 
     @Autowired
-    private ProductRepository _service;
+    private PostRepository _service;
 
     @Autowired
-    private IProductCommandService _CommandService;
+    private IPostCommandService _CommandService;
 
     @GetMapping(GetEndpoint)
-    public ResponseEntity<?> GetProduct(@RequestParam(name = IdParam) String id, 
+    public ResponseEntity<?> GetPost(@RequestParam(name = IdParam) String id, 
     HttpServletRequest httpServletRequest) {
 
         var fetched = _service.findById(id);
@@ -52,11 +52,10 @@ public class ProductController {
         {
             var result = fetched.get();
             if (!result.id.isEmpty())
-            return new ResponseEntity<Product>(result, HttpStatus.OK);
+            return new ResponseEntity<Post>(result, HttpStatus.OK);
 
         }
 
-        
         return new ResponseEntity<ErrorResponse>(
             new ErrorResponse(HttpStatus.NOT_FOUND, 
             Messages.Not_Found , 
@@ -66,29 +65,29 @@ public class ProductController {
     }
 
     @GetMapping(GetAllEndpoint)
-    public ResponseEntity<List<Product>> GetProducts() {
+    public ResponseEntity<List<Post>> GetPosts() {
 
-        List<Product> result = StreamSupport.stream(_service.findAll().spliterator(), false)
+        List<Post> result = StreamSupport.stream(_service.findAll().spliterator(), false)
                 .collect(Collectors.toList());
 
-        return new ResponseEntity<List<Product>>(result, HttpStatus.OK);
+        return new ResponseEntity<List<Post>>(result, HttpStatus.OK);
     }
 
     @PostMapping(CreateEndpoint)
-    public CompletableFuture<String> CreateProduct(@RequestBody CreateProductRequest request) {
+    public CompletableFuture<String> CreatePost(@RequestBody CreatePostRequest request) {
 
-        var product = new ProductAggregate("", request.getName(), request.getPrice(), request.getDescription());
+        var product = new PostAggregate("",  request.getUser(), request.getDescription());
 
-        var result = _CommandService.CreateProduct(product);
+        var result = _CommandService.CreatePost(product);
 
         return result;
     }
-    
+
     @PutMapping(UpdateEndpoint)
-    public ResponseEntity<?> Updateproduct(@RequestBody UpdateProductRequest request,
+    public ResponseEntity<?> Updateproduct(@RequestBody UpdatePostRequest request,
      HttpServletRequest httpServletRequest) {
 
-        var product = new Product("", request.getName(), request.getPrice(), request.getDescription());
+        var product = new Post(request.id,  request.getUser(), request.getDescription());
 
         var fetched = _service.findById(request.getId());
         if(fetched.isPresent())
@@ -97,7 +96,7 @@ public class ProductController {
 
             if (result.Equals(product)) {
                 var item = _service.save(product);
-                return new ResponseEntity<Product>(item, HttpStatus.OK);
+                return new ResponseEntity<Post>(item, HttpStatus.OK);
             }
         }
         return new ResponseEntity<ErrorResponse>(
@@ -115,9 +114,9 @@ public class ProductController {
         if(fetched.isPresent())
         {
             var result = fetched.get();
-            if (result.name != "") {
+            if (result.description != "") {
                 _service.delete(result);
-                return new ResponseEntity<Product>(result, HttpStatus.OK);
+                return new ResponseEntity<Post>(result, HttpStatus.OK);
             }
         }
         return new ResponseEntity<ErrorResponse>(
