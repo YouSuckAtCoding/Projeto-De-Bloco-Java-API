@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import infnet.edu.apibloco.Commands.Post.Services.IPostCommandService;
 import infnet.edu.apibloco.Constants.Messages;
 import infnet.edu.apibloco.Domain.Aggreagates.PostAggregate;
@@ -23,13 +26,14 @@ import infnet.edu.apibloco.Domain.Contracts.Requests.Products.CreatePostRequest;
 import infnet.edu.apibloco.Domain.Contracts.Requests.Products.UpdatePostRequest;
 import infnet.edu.apibloco.Domain.Contracts.Responses.ErrorResponse;
 import infnet.edu.apibloco.Domain.Models.Post;
+import infnet.edu.apibloco.Domain.Models.User;
 import infnet.edu.apibloco.Infrastructure.PostRepository;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 public class PostController {
 
-    private static final String Base = "api/product";
+    private static final String Base = "api/post";
     private static final String GetEndpoint = Base;
     private static final String GetAllEndpoint = Base + "/all";
     private static final String CreateEndpoint = Base;
@@ -65,18 +69,25 @@ public class PostController {
     }
 
     @GetMapping(GetAllEndpoint)
-    public ResponseEntity<List<Post>> GetPosts() {
+    public ResponseEntity<String> GetPosts() throws JsonProcessingException {
 
         List<Post> result = StreamSupport.stream(_service.findAll().spliterator(), false)
                 .collect(Collectors.toList());
 
-        return new ResponseEntity<List<Post>>(result, HttpStatus.OK);
+        ObjectMapper mapper = new ObjectMapper();
+
+        return new ResponseEntity<String>(mapper.writeValueAsString(result), HttpStatus.OK);
     }
 
     @PostMapping(CreateEndpoint)
     public CompletableFuture<String> CreatePost(@RequestBody CreatePostRequest request) {
 
-        var product = new PostAggregate("",  request.getUser(), request.getDescription());
+        var product = new PostAggregate("",  new User(
+            request.getUserId(), 
+            "",
+            "",
+            ""), 
+            request.getDescription());
 
         var result = _CommandService.CreatePost(product);
 

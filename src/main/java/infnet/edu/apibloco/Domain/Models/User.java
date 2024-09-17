@@ -9,7 +9,7 @@ public class User extends EntityRoot{
 
     @Column(nullable = false, length = 30)
     public String Name;
-    @Column(nullable = false, length = 35)
+    @Column(nullable = false, length = 35, unique = true)
     public String Email;
     @Column(nullable = false, length = 20)    
     public String Password;

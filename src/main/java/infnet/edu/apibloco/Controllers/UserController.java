@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import infnet.edu.apibloco.Commands.User.Services.IUserCommandService;
 import infnet.edu.apibloco.Constants.Messages;
@@ -23,6 +24,7 @@ import infnet.edu.apibloco.Domain.Aggreagates.UserAggregate;
 import infnet.edu.apibloco.Domain.Contracts.Email.SendEmailRequest;
 import java.util.concurrent.CompletableFuture;
 import infnet.edu.apibloco.Domain.Contracts.Requests.User.CreateUserRequest;
+import infnet.edu.apibloco.Domain.Contracts.Requests.User.LoginRequest;
 import infnet.edu.apibloco.Domain.Contracts.Requests.User.UpdateUserRequest;
 import infnet.edu.apibloco.Domain.Contracts.Responses.ErrorResponse;
 import infnet.edu.apibloco.Domain.Models.User;
@@ -51,6 +53,7 @@ public class UserController {
     private static final String GetEndpoint = Base;
     private static final String GetAllEndpoint = Base + "/all";
     private static final String CreateEndpoint = Base;
+    private static final String LoginEndpoint = Base + "/login";
     private static final String UpdateEndpoint = Base + "/update";
     private static final String DeleteEndpoint = Base;
     private static final String IdParam = "id";
@@ -98,6 +101,27 @@ public class UserController {
         _queueSender.send(emailRequest);
         
         return result;
+    }
+
+    @PostMapping(LoginEndpoint)
+    public ResponseEntity<String> Login(@RequestBody LoginRequest request,
+    HttpServletRequest httpServletRequest) throws JsonProcessingException
+    {
+        if(request.getEmail() != "" && request.getPass() != "")
+        {
+            
+            var result = _service.login(request.getEmail(), request.getPass());
+            
+            if(result.id != "")
+            {                
+                ObjectMapper mapper = new ObjectMapper();
+                return new ResponseEntity<String>(mapper.writeValueAsString(result), HttpStatus.OK);
+            }
+     
+            return new ResponseEntity<String>("", HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<String>("", HttpStatus.BAD_REQUEST);
     }
 
 

@@ -1,18 +1,18 @@
 package infnet.edu.apibloco.Domain.Contracts.Requests.Products;
 
-import infnet.edu.apibloco.Domain.Models.User;
 
 public class CreatePostRequest {
 
-    public User user;
+    public String userId;
     public String description;
+
+    public String getUserId() {
+        return userId;
+    }
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
     
-    public User getUser() {
-        return user;
-    }
-    public void setUser(User user) {
-        this.user = user;
-    }
     public String getDescription() {
         return description;
     }
