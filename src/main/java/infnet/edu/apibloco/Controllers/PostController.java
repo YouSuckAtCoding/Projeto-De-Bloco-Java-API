@@ -8,6 +8,7 @@ import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,6 +30,7 @@ import infnet.edu.apibloco.Domain.Models.Post;
 import infnet.edu.apibloco.Domain.Models.User;
 import infnet.edu.apibloco.Infrastructure.PostRepository;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 
 @RestController
 public class PostController {
@@ -48,23 +50,22 @@ public class PostController {
     private IPostCommandService _CommandService;
 
     @GetMapping(GetEndpoint)
-    public ResponseEntity<?> GetPost(@RequestParam(name = IdParam) String id, 
-    HttpServletRequest httpServletRequest) {
+    public ResponseEntity<?> GetPost(@RequestParam(name = IdParam) String id,
+            HttpServletRequest httpServletRequest) {
 
         var fetched = _service.findById(id);
-        if(fetched.isPresent())
-        {
+        if (fetched.isPresent()) {
             var result = fetched.get();
             if (!result.id.isEmpty())
-            return new ResponseEntity<Post>(result, HttpStatus.OK);
+                return new ResponseEntity<Post>(result, HttpStatus.OK);
 
         }
 
         return new ResponseEntity<ErrorResponse>(
-            new ErrorResponse(HttpStatus.NOT_FOUND, 
-            Messages.Not_Found , 
-            httpServletRequest.getRequestURI())
-            ,HttpStatus.NOT_FOUND);
+                new ErrorResponse(HttpStatus.NOT_FOUND,
+                        Messages.Not_Found,
+                        httpServletRequest.getRequestURI()),
+                HttpStatus.NOT_FOUND);
 
     }
 
@@ -80,29 +81,44 @@ public class PostController {
     }
 
     @PostMapping(CreateEndpoint)
-    public CompletableFuture<String> CreatePost(@RequestBody CreatePostRequest request) {
+    public ResponseEntity<?> CreatePost(@Valid @RequestBody CreatePostRequest request, 
+    BindingResult validation, HttpServletRequest httpServletRequest) {
 
-        var product = new PostAggregate("",  new User(
-            request.getUserId(), 
-            "",
-            "",
-            ""), 
-            request.getDescription());
+        if(validation.hasErrors())
+        {
+            return ResponseEntity.badRequest().body(validation.getAllErrors().toString());
+        }
+
+        var product = new PostAggregate("", new User(
+                request.getUserId(),
+                "",
+                "",
+                ""),
+                request.getDescription());
 
         var result = _CommandService.CreatePost(product);
 
-        return result;
+        return new ResponseEntity<CompletableFuture<String>>(result, HttpStatus.OK);
     }
 
     @PutMapping(UpdateEndpoint)
-    public ResponseEntity<?> Updateproduct(@RequestBody UpdatePostRequest request,
-     HttpServletRequest httpServletRequest) {
+    public ResponseEntity<?> Updateproduct(@Valid @RequestBody UpdatePostRequest request,
+            HttpServletRequest httpServletRequest, BindingResult validation) {
 
-        var product = new Post(request.id,  request.getUser(), request.getDescription());
+         if(validation.hasErrors())
+        {
+            return ResponseEntity.badRequest().body(validation.getAllErrors().toString());
+        }
+        var product = new Post(
+                request.getId(),
+                new User(request.getUserId(),
+                        "",
+                        "",
+                        ""),
+                request.getDescription());
 
         var fetched = _service.findById(request.getId());
-        if(fetched.isPresent())
-        {
+        if (fetched.isPresent()) {
             var result = fetched.get();
 
             if (result.Equals(product)) {
@@ -111,19 +127,18 @@ public class PostController {
             }
         }
         return new ResponseEntity<ErrorResponse>(
-            new ErrorResponse(HttpStatus.NOT_FOUND, 
-            Messages.Not_Found , 
-            httpServletRequest.getRequestURI())
-            ,HttpStatus.NOT_FOUND);
+                new ErrorResponse(HttpStatus.NOT_FOUND,
+                        Messages.Not_Found,
+                        httpServletRequest.getRequestURI()),
+                HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping(DeleteEndpoint)
     public ResponseEntity<?> Deleteproduct(@RequestParam(name = IdParam) String id,
-     HttpServletRequest httpServletRequest) {
+            HttpServletRequest httpServletRequest) {
 
         var fetched = _service.findById(id);
-        if(fetched.isPresent())
-        {
+        if (fetched.isPresent()) {
             var result = fetched.get();
             if (result.description != "") {
                 _service.delete(result);
@@ -131,10 +146,10 @@ public class PostController {
             }
         }
         return new ResponseEntity<ErrorResponse>(
-            new ErrorResponse(HttpStatus.NOT_FOUND, 
-            Messages.Not_Found , 
-            httpServletRequest.getRequestURI())
-            ,HttpStatus.NOT_FOUND);
+                new ErrorResponse(HttpStatus.NOT_FOUND,
+                        Messages.Not_Found,
+                        httpServletRequest.getRequestURI()),
+                HttpStatus.NOT_FOUND);
     }
 
 }

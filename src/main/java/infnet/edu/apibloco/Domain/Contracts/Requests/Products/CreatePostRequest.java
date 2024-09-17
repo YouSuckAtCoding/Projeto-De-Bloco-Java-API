@@ -1,10 +1,14 @@
 package infnet.edu.apibloco.Domain.Contracts.Requests.Products;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public class CreatePostRequest {
 
-    public String userId;
-    public String description;
+    private String userId;
+    @NotNull
+	@Size(min=5, max=100)
+    private String description;
 
     public String getUserId() {
         return userId;

@@ -1,12 +1,18 @@
 package infnet.edu.apibloco.Domain.Contracts.Requests.Products;
 
-import infnet.edu.apibloco.Domain.Models.User;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public class UpdatePostRequest {
     
-    public String id;        
-    public User user;
-    public String description;
+    private String id;
+    @NotNull
+    @NotBlank        
+    private String userId;
+    @NotNull
+	@Size(min=5, max=100)
+    private String description;
     
     public String getId() {
         return id;
@@ -14,17 +20,18 @@ public class UpdatePostRequest {
     public void setId(String id) {
         this.id = id;
     }
-    public User getUser() {
-        return user;
-    }
-    public void setUser(User user) {
-        this.user = user;
-    }
+   
     public String getDescription() {
         return description;
     }
     public void setDescription(String description) {
         this.description = description;
+    }
+    public String getUserId() {
+        return userId;
+    }
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     

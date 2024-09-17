@@ -1,8 +1,15 @@
 package infnet.edu.apibloco.Domain.Contracts.Requests.User;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public class LoginRequest {
 
+     @NotBlank
+    @NotNull
     private String email;
+    @NotBlank
+    @NotNull
     private String pass;
 
 public String getEmail() {

@@ -7,6 +7,7 @@ import java.util.stream.StreamSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +35,7 @@ import infnet.edu.apibloco.Infrastructure.UserRepository;
 import infnet.edu.apibloco.Infrastructure.Services.EmailSenderService;
 import infnet.edu.apibloco.Messaging.QueueSender;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
 
 @RestController
 public class UserController {
@@ -88,7 +90,11 @@ public class UserController {
     }
 
     @PostMapping(CreateEndpoint)
-    public CompletableFuture<String> CreateUser(@RequestBody CreateUserRequest request) throws JsonProcessingException {
+    public ResponseEntity<?> CreateUser(@Valid @RequestBody CreateUserRequest request,
+    BindingResult validation) throws JsonProcessingException {
+
+        if(validation.hasErrors())
+            return ResponseEntity.badRequest().body(    validation.getAllErrors().toString());
 
         var user = new UserAggregate("", 
         request.getName(), 
@@ -100,13 +106,16 @@ public class UserController {
         SendEmailRequest emailRequest = UserEmailFactory.CreateUserEmailRequest(user, OperationType.Create);
         _queueSender.send(emailRequest);
         
-        return result;
+        return new ResponseEntity<CompletableFuture<String>>(result, HttpStatus.OK);
     }
 
     @PostMapping(LoginEndpoint)
-    public ResponseEntity<String> Login(@RequestBody LoginRequest request,
-    HttpServletRequest httpServletRequest) throws JsonProcessingException
+    public ResponseEntity<String> Login(@Valid @RequestBody LoginRequest request,
+    HttpServletRequest httpServletRequest, BindingResult validation) throws JsonProcessingException
     {
+        if(validation.hasErrors())
+            return ResponseEntity.badRequest().body(validation.getAllErrors().toString());
+
         if(request.getEmail() != "" && request.getPass() != "")
         {
             
@@ -126,8 +135,11 @@ public class UserController {
 
 
     @PutMapping(UpdateEndpoint)
-    public ResponseEntity<?> UpdateUser(@RequestBody UpdateUserRequest request,
-     HttpServletRequest httpServletRequest) {
+    public ResponseEntity<?> UpdateUser(@Valid @RequestBody UpdateUserRequest request,
+     HttpServletRequest httpServletRequest, BindingResult validation) {
+
+        if(validation.hasErrors())
+            return ResponseEntity.badRequest().body(validation.getAllErrors().toString());
 
         var fetched = _service.findById(request.getId());
 

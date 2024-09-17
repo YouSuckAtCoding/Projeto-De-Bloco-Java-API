@@ -1,12 +1,21 @@
 package infnet.edu.apibloco.Domain.Contracts.Requests.User;
 
-
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public class CreateUserRequest {
 
-    
+    @NotBlank
+    @NotNull
+    @Size(min = 5, max = 30)
     private String name;
+    @NotBlank
+    @NotNull
     private String email;
+    @NotBlank
+    @NotNull
+    @Size(min = 5, max = 30)
     private String password;
 
     public String getName() {
