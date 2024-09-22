@@ -17,7 +17,6 @@ public class UserTests {
 	private UserRepository _userRepository;
 	    
     private final String userName = "teste";
-    private final String userEmail= "olokobicho@email.com";
     private final String userPassword = "12345";
 
     @Test
@@ -29,7 +28,7 @@ public class UserTests {
     @Test
 	void Should_Insert_User_In_UserRepository()
     {
-        var user = new User(UUID.randomUUID().toString(), userName, userEmail, userPassword);
+        var user = new User(UUID.randomUUID().toString(), userName, "emailteste@teste.com", userPassword);
 
         var created = _userRepository.save(user);
         var result = _userRepository.findById(created.id);
@@ -39,11 +38,14 @@ public class UserTests {
     @Test
 	void Should_Delete_User_In_UserRepository()
     {
-        var users = _userRepository.findAll();
+        var user = new User(UUID.randomUUID().toString(), userName, "emailteste2@teste.com", userPassword);
+        _userRepository.save(user);
+        
+        var selected = _userRepository.findById(user.id).get();      
 
-        var lastUser = users.get(users.size() - 1);
-        _userRepository.delete(lastUser);
-        var result = _userRepository.findById(lastUser.id);
+        _userRepository.delete(selected);
+
+        var result = _userRepository.findById(selected.id);
 
         Assert.isTrue(!result.isPresent(), "User Deleted");
     }
@@ -51,7 +53,7 @@ public class UserTests {
     void Should_Update_User_In_UserRepository()
     {
       
-        var user = new User(UUID.randomUUID().toString(),userName, userEmail, userPassword);
+        var user = new User(UUID.randomUUID().toString(), userName, "emailteste3@teste.com", userPassword);
 
         var created = _userRepository.save(user);
         created.Name = "Teste666";

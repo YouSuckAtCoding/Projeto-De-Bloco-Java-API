@@ -9,13 +9,14 @@ services:
       - 'MYSQL_USER=myuser'
     ports:
       - '3306:3306'
-  # api:
-  #   container_name: 'apibloco_container'
-  #   image: 'apibloco:latest'
-  #   ports:
-  #     - 8086:8086 
-  #   restart: unless-stopped
-    
+
+  api:
+    container_name: 'apibloco_container'
+    image: 'apibloco:latest'
+    ports:
+      - 8086:8086 
+    restart: unless-stopped
+
   rabbitmq:
     container_name: 'rabbit'
     image: 'rabbitmq:3.13.7-management'
@@ -24,14 +25,15 @@ services:
       - 'RABBITMQ_DEFAULT_USER=myuser'
     ports:
       - '5672:5672'
-      - '15672:15672'
+      - '15672:15672'    
+      
   axioniq:
     container_name: 'axionapiserver'
     image: 'axoniq/axonserver:2024.1.2-jdk-17-nonroot'
     ports:
       - 8024:8024
       - 8124:8124
-    
+
 
 
         
