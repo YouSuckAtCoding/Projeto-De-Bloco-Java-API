@@ -32,5 +32,32 @@ public class EmailSenderTests {
 		.verifyComplete();
     }
 
+    @Test
+    void Should_Get_Emails_By_Address()
+    {
+        String emailAdd = "marcoantoniodoom@gmail.com";
+
+        var result = _service.GetEmailsByUser(emailAdd);
+
+        StepVerifier.create(result)
+		.consumeNextWith(x -> {
+			System.out.println(x);
+		})
+		.verifyComplete();
+    }
+    @Test
+    void Should_Delete_Emails_By_Address()
+    {
+        String emailAdd = "marcoantoniodoom@gmail.com";
+
+        var result = _service.DeleteEmails(emailAdd);
+
+        StepVerifier.create(result)
+		.consumeNextWith(x -> {
+			System.out.println(x);
+		})
+		.verifyComplete();
+    }
+
 
 }
