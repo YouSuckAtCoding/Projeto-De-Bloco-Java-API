@@ -4589,3 +4589,381 @@ Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'm
 2024-10-06T15:41:17.982-03:00 DEBUG 21424 --- [apibloco] [SpringApplicationShutdownHook] o.s.web.client.RestTemplate              : Response 200 OK
 2024-10-06T15:41:17.982-03:00  INFO 21424 --- [apibloco] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_APIBLOCO/host.docker.internal:apibloco:8086 - deregister  status: 200
 2024-10-06T15:41:17.982-03:00  INFO 21424 --- [apibloco] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2024-10-06T15:53:14.346-03:00  INFO 11280 --- [apibloco] [main] i.edu.apibloco.ApiblocoApplication       : Starting ApiblocoApplication using Java 17.0.11 with PID 11280 (D:\Projetos\Api Java Bloco Infnet\apibloco2\apibloco2\build\classes\java\main started by marco in D:\Projetos\Api Java Bloco Infnet\apibloco2\apibloco2)
+2024-10-06T15:53:14.353-03:00 DEBUG 11280 --- [apibloco] [main] i.edu.apibloco.ApiblocoApplication       : Running with Spring Boot v3.3.2, Spring v6.1.11
+2024-10-06T15:53:14.421-03:00  INFO 11280 --- [apibloco] [main] i.edu.apibloco.ApiblocoApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-10-06T15:53:14.905-03:00  INFO 11280 --- [apibloco] [main] .s.b.d.c.l.DockerComposeLifecycleManager : Using Docker Compose file 'D:\Projetos\Api Java Bloco Infnet\apibloco2\apibloco2\docker-compose.yaml'
+2024-10-06T15:53:20.123-03:00  INFO 11280 --- [apibloco] [main] .s.b.d.c.l.DockerComposeLifecycleManager : There are already Docker Compose services running, skipping startup
+2024-10-06T15:53:21.014-03:00  INFO 11280 --- [apibloco] [main] verDockerComposeConnectionDetailsFactory : Detected Axon Server container. To access the dashboard, visit http://127.0.0.1:8024
+2024-10-06T15:53:21.703-03:00  WARN 11280 --- [apibloco] [main] o.s.c.annotation.AnnotationTypeMapping   : Support for convention-based annotation attribute overrides is deprecated and will be removed in Spring Framework 6.2. Please annotate the following attributes in @org.axonframework.spring.stereotype.Aggregate with appropriate @AliasFor declarations: [type]
+2024-10-06T15:53:21.718-03:00  WARN 11280 --- [apibloco] [main] o.s.c.annotation.AnnotationTypeMapping   : Support for convention-based annotation attribute overrides is deprecated and will be removed in Spring Framework 6.2. Please annotate the following attributes in @org.axonframework.eventsourcing.EventSourcingHandler with appropriate @AliasFor declarations: [payloadType]
+2024-10-06T15:53:21.718-03:00  WARN 11280 --- [apibloco] [main] o.s.c.annotation.AnnotationTypeMapping   : Support for convention-based annotation attribute overrides is deprecated and will be removed in Spring Framework 6.2. Please annotate the following attributes in @org.axonframework.eventsourcing.EventSourcingHandler with appropriate @AliasFor declarations: [payloadType]
+2024-10-06T15:53:21.859-03:00  WARN 11280 --- [apibloco] [main] o.s.c.annotation.AnnotationTypeMapping   : Support for convention-based annotation attribute overrides is deprecated and will be removed in Spring Framework 6.2. Please annotate the following attributes in @org.axonframework.eventhandling.EventHandler with appropriate @AliasFor declarations: [payloadType]
+2024-10-06T15:53:25.861-03:00  INFO 11280 --- [apibloco] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-10-06T15:53:26.851-03:00  INFO 11280 --- [apibloco] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 900 ms. Found 2 JPA repository interfaces.
+2024-10-06T15:53:28.629-03:00  INFO 11280 --- [apibloco] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d926f8a4-48b5-3bdb-a4f5-d4b3f3a1778f
+2024-10-06T15:53:31.472-03:00  WARN 11280 --- [apibloco] [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-10-06T15:53:31.732-03:00  WARN 11280 --- [apibloco] [main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-06T15:53:31.772-03:00  WARN 11280 --- [apibloco] [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-10-06T15:53:31.775-03:00  WARN 11280 --- [apibloco] [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactorDeferringLoadBalancerFilterConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-06T15:53:31.937-03:00  WARN 11280 --- [apibloco] [main] trationDelegate$BeanPostProcessorChecker : Bean 'reactorDeferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [loadBalancerWebClientBuilderBeanPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-10-06T15:53:34.400-03:00  INFO 11280 --- [apibloco] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8086 (http)
+2024-10-06T15:53:34.427-03:00  INFO 11280 --- [apibloco] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-10-06T15:53:34.430-03:00  INFO 11280 --- [apibloco] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-10-06T15:53:35.009-03:00  INFO 11280 --- [apibloco] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-10-06T15:53:35.009-03:00  INFO 11280 --- [apibloco] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 13981 ms
+2024-10-06T15:53:36.041-03:00  INFO 11280 --- [apibloco] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-10-06T15:53:37.103-03:00  INFO 11280 --- [apibloco] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-10-06T15:53:37.207-03:00  INFO 11280 --- [apibloco] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-10-06T15:53:38.643-03:00  INFO 11280 --- [apibloco] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-10-06T15:53:38.777-03:00  INFO 11280 --- [apibloco] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-10-06T15:53:40.472-03:00  INFO 11280 --- [apibloco] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@14bd523b
+2024-10-06T15:53:40.478-03:00  INFO 11280 --- [apibloco] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-10-06T15:53:47.154-03:00  INFO 11280 --- [apibloco] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-10-06T15:53:47.320-03:00  WARN 11280 --- [apibloco] [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table post drop foreign key FK7ky67sgi7k0ayf22652f7763r" via JDBC [Table 'pbdatabase.post' doesn't exist]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table post drop foreign key FK7ky67sgi7k0ayf22652f7763r" via JDBC [Table 'pbdatabase.post' doesn't exist]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlString(Helper.java:233) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.tool.schema.internal.Helper.applySqlStrings(Helper.java:217) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:476) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropConstraintsTablesSequences(SchemaDropperImpl.java:242) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:215) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:185) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:155) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:115) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:238) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[na:na]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:322) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:457) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1506) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:75) ~[spring-orm-6.1.11.jar:6.1.11]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.1.11.jar:6.1.11]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-6.1.11.jar:6.1.11]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-6.1.11.jar:6.1.11]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.1.11.jar:6.1.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.11.jar:6.1.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.11.jar:6.1.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.11.jar:6.1.11]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.11.jar:6.1.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.11.jar:6.1.11]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.11.jar:6.1.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.11.jar:6.1.11]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.11.jar:6.1.11]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954) ~[spring-context-6.1.11.jar:6.1.11]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.11.jar:6.1.11]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.2.jar:3.3.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.2.jar:3.3.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.2.jar:3.3.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.2.jar:3.3.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.2.jar:3.3.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.2.jar:3.3.2]
+	at infnet.edu.apibloco.ApiblocoApplication.main(ApiblocoApplication.java:14) ~[main/:na]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'pbdatabase.post' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:112) ~[mysql-connector-j-9.0.0.jar:9.0.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.0.0.jar:9.0.0]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:875) ~[mysql-connector-j-9.0.0.jar:9.0.0]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:723) ~[mysql-connector-j-9.0.0.jar:9.0.0]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	... 39 common frames omitted
+
+2024-10-06T15:53:51.199-03:00  INFO 11280 --- [apibloco] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-10-06T15:53:51.742-03:00  INFO 11280 --- [apibloco] [main] o.a.s.a.XStreamAutoConfiguration         : Initializing an XStream instance since none was found. The auto configuration base packages will be used as wildcards for the XStream security settings.
+2024-10-06T15:53:53.033-03:00  INFO 11280 --- [apibloco] [main] o.a.s.util.XStreamSecurityTypeUtility    : Constructing wildcard type for base package [infnet.edu.apibloco].
+2024-10-06T15:53:53.035-03:00  INFO 11280 --- [apibloco] [main] o.a.s.util.XStreamSecurityTypeUtility    : Constructing wildcard type for base package [org.axonframework.eventhandling.tokenstore].
+2024-10-06T15:53:53.035-03:00  INFO 11280 --- [apibloco] [main] o.a.s.util.XStreamSecurityTypeUtility    : Constructing wildcard type for base package [org.axonframework.eventhandling.deadletter.jpa].
+2024-10-06T15:53:53.036-03:00  INFO 11280 --- [apibloco] [main] o.a.s.util.XStreamSecurityTypeUtility    : Constructing wildcard type for base package [org.axonframework.modelling.saga.repository.jpa].
+2024-10-06T15:53:53.058-03:00  INFO 11280 --- [apibloco] [main] o.a.serialization.ChainingConverter      : ContentTypeConverter of type [class org.axonframework.serialization.xml.Dom4JToByteArrayConverter] is ignored. It seems to rely on a class that is not available in the class loader: org/dom4j/Document
+2024-10-06T15:53:53.066-03:00  INFO 11280 --- [apibloco] [main] o.a.serialization.ChainingConverter      : ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToDom4jConverter] is ignored. It seems to rely on a class that is not available in the class loader: org/dom4j/Document
+2024-10-06T15:53:53.069-03:00  INFO 11280 --- [apibloco] [main] o.a.serialization.ChainingConverter      : ContentTypeConverter of type [class org.axonframework.serialization.xml.XomToStringConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/Document
+2024-10-06T15:53:53.081-03:00  INFO 11280 --- [apibloco] [main] o.a.serialization.ChainingConverter      : ContentTypeConverter of type [class org.axonframework.serialization.xml.InputStreamToXomConverter] is ignored. It seems to rely on a class that is not available in the class loader: nu/xom/ParsingException
+2024-10-06T15:53:53.309-03:00  INFO 11280 --- [apibloco] [main] o.a.config.AxonIQConsoleModule           : 
+################################################################################################
+## You have not configured AxonIQ Console. AxonIQ Console provides out-of-the box monitoring  ##
+## and management capabilities for your Axon Application, starting with it is free.           ##
+## Visit https://console.axoniq.io for more information!                                      ##
+## Suppress this message by setting system property disable-axoniq-console-message to true.   ##
+################################################################################################
+
+2024-10-06T15:53:54.293-03:00  INFO 11280 --- [apibloco] [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-10-06T15:53:55.692-03:00  WARN 11280 --- [apibloco] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-10-06T15:53:56.155-03:00 DEBUG 11280 --- [apibloco] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 17 mappings in 'requestMappingHandlerMapping'
+2024-10-06T15:53:56.326-03:00 DEBUG 11280 --- [apibloco] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /api/swagger-ui*/*swagger-initializer.js, /api/swagger-ui*/**] in 'resourceHandlerMapping'
+2024-10-06T15:53:56.466-03:00 DEBUG 11280 --- [apibloco] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-10-06T15:53:56.633-03:00 DEBUG 11280 --- [apibloco] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-10-06T15:53:58.988-03:00  INFO 11280 --- [apibloco] [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-10-06T15:53:59.859-03:00  WARN 11280 --- [apibloco] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-10-06T15:54:00.177-03:00  INFO 11280 --- [apibloco] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-10-06T15:54:00.272-03:00  INFO 11280 --- [apibloco] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-10-06T15:54:00.289-03:00  INFO 11280 --- [apibloco] [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-10-06T15:54:00.322-03:00  INFO 11280 --- [apibloco] [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-10-06T15:54:00.324-03:00  INFO 11280 --- [apibloco] [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-10-06T15:54:00.326-03:00  INFO 11280 --- [apibloco] [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-10-06T15:54:00.328-03:00  INFO 11280 --- [apibloco] [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-10-06T15:54:00.338-03:00  INFO 11280 --- [apibloco] [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-10-06T15:54:00.340-03:00  INFO 11280 --- [apibloco] [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-10-06T15:54:00.343-03:00  INFO 11280 --- [apibloco] [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-10-06T15:54:00.638-03:00 DEBUG 11280 --- [apibloco] [main] o.s.web.client.RestTemplate              : HTTP GET http://host.docker.internal:8761/eureka/apps/
+2024-10-06T15:54:00.881-03:00 DEBUG 11280 --- [apibloco] [main] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-10-06T15:54:01.031-03:00 DEBUG 11280 --- [apibloco] [main] o.s.web.client.RestTemplate              : Response 200 OK
+2024-10-06T15:54:01.037-03:00 DEBUG 11280 --- [apibloco] [main] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2024-10-06T15:54:01.089-03:00  INFO 11280 --- [apibloco] [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-10-06T15:54:01.094-03:00  INFO 11280 --- [apibloco] [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2024-10-06T15:54:01.102-03:00  INFO 11280 --- [apibloco] [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-10-06T15:54:01.106-03:00  INFO 11280 --- [apibloco] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1728240841105 with initial instances count: 0
+2024-10-06T15:54:01.123-03:00  INFO 11280 --- [apibloco] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application APIBLOCO with eureka with status UP
+2024-10-06T15:54:01.124-03:00  INFO 11280 --- [apibloco] [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1728240841124, current=UP, previous=STARTING]
+2024-10-06T15:54:01.131-03:00  INFO 11280 --- [apibloco] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_APIBLOCO/host.docker.internal:apibloco:8086: registering service...
+2024-10-06T15:54:01.165-03:00 DEBUG 11280 --- [apibloco] [DiscoveryClient-InstanceInfoReplicator-%d] o.s.web.client.RestTemplate              : HTTP POST http://host.docker.internal:8761/eureka/apps/APIBLOCO
+2024-10-06T15:54:01.172-03:00 DEBUG 11280 --- [apibloco] [DiscoveryClient-InstanceInfoReplicator-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-10-06T15:54:01.242-03:00 DEBUG 11280 --- [apibloco] [DiscoveryClient-InstanceInfoReplicator-%d] o.s.web.client.RestTemplate              : Writing [InstanceInfo [instanceId = host.docker.internal:apibloco:8086, appName = APIBLOCO, hostName = host.docker.internal, status = UP, ipAddr = 192.168.2.139, port = 8086, securePort = 443, dataCenterInfo = com.netflix.appinfo.MyDataCenterInfo@6859080d] as "application/json"
+2024-10-06T15:54:01.352-03:00 DEBUG 11280 --- [apibloco] [DiscoveryClient-InstanceInfoReplicator-%d] o.s.web.client.RestTemplate              : Response 204 NO_CONTENT
+2024-10-06T15:54:01.353-03:00  INFO 11280 --- [apibloco] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_APIBLOCO/host.docker.internal:apibloco:8086 - registration status: 204
+2024-10-06T15:54:02.342-03:00  INFO 11280 --- [apibloco] [main] i.a.a.c.impl.AxonServerManagedChannel    : Requesting connection details from host.docker.internal:8124
+2024-10-06T15:54:03.465-03:00  INFO 11280 --- [apibloco] [main] i.a.a.c.impl.AxonServerManagedChannel    : Successfully connected to host.docker.internal:8124
+2024-10-06T15:54:03.551-03:00  INFO 11280 --- [apibloco] [main] i.a.a.connector.impl.ControlChannelImpl  : Connected instruction stream for context 'default'. Sending client identification
+2024-10-06T15:54:03.634-03:00  INFO 11280 --- [apibloco] [main] i.a.a.c.command.impl.CommandChannelImpl  : CommandChannel for context 'default' connected, 0 command handlers registered
+2024-10-06T15:54:03.699-03:00  INFO 11280 --- [apibloco] [main] i.a.a.c.command.impl.CommandChannelImpl  : Registered handler for command 'infnet.edu.apibloco.Commands.User.CreateUserCommand' in context 'default'
+2024-10-06T15:54:03.711-03:00  INFO 11280 --- [apibloco] [main] i.a.a.c.command.impl.CommandChannelImpl  : Registered handler for command 'infnet.edu.apibloco.Commands.Post.CreatePostCommand' in context 'default'
+2024-10-06T15:54:04.600-03:00  INFO 11280 --- [apibloco] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8086 (http) with context path '/'
+2024-10-06T15:54:04.603-03:00  INFO 11280 --- [apibloco] [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8086
+2024-10-06T15:54:05.048-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Worker assigned to segment Segment[0/0] for processing
+2024-10-06T15:54:05.130-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Using current Thread for last segment worker: TrackingSegmentWorker{processor=infnet.edu.apibloco, segment=Segment[0/0]}
+2024-10-06T15:54:05.177-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Fetched token: ReplayToken{currentToken=null, tokenAtReset=IndexTrackingToken{globalIndex=17}, context=null} for segment: Segment[0/0]
+2024-10-06T15:54:05.405-03:00  INFO 11280 --- [apibloco] [main] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [127.0.0.1:5672]
+2024-10-06T15:54:05.457-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.m.command.AbstractRepository         : The active Unit of Work is expected to contain a CommandMessage or a DeadlineMessage, but instead contains a [class org.axonframework.eventhandling.GenericTrackedDomainEventMessage]
+2024-10-06T15:54:05.612-03:00  INFO 11280 --- [apibloco] [main] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#6f272dc4:0/SimpleConnection@6b0fece4 [delegate=amqp://myuser@127.0.0.1:5672/, localPort=49350]
+2024-10-06T15:54:05.775-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.m.command.AbstractRepository         : The active Unit of Work is expected to contain a CommandMessage or a DeadlineMessage, but instead contains a [class org.axonframework.eventhandling.GenericTrackedDomainEventMessage]
+2024-10-06T15:54:05.915-03:00  INFO 11280 --- [apibloco] [main] i.edu.apibloco.ApiblocoApplication       : Started ApiblocoApplication in 53.378 seconds (process running for 55.66)
+2024-10-06T15:54:05.975-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.m.command.AbstractRepository         : The active Unit of Work is expected to contain a CommandMessage or a DeadlineMessage, but instead contains a [class org.axonframework.eventhandling.GenericTrackedDomainEventMessage]
+2024-10-06T15:54:06.110-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.m.command.AbstractRepository         : The active Unit of Work is expected to contain a CommandMessage or a DeadlineMessage, but instead contains a [class org.axonframework.eventhandling.GenericTrackedDomainEventMessage]
+2024-10-06T15:54:06.242-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.m.command.AbstractRepository         : The active Unit of Work is expected to contain a CommandMessage or a DeadlineMessage, but instead contains a [class org.axonframework.eventhandling.GenericTrackedDomainEventMessage]
+2024-10-06T15:54:06.383-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.m.command.AbstractRepository         : The active Unit of Work is expected to contain a CommandMessage or a DeadlineMessage, but instead contains a [class org.axonframework.eventhandling.GenericTrackedDomainEventMessage]
+2024-10-06T15:54:06.461-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1062, SQLState: 23000
+2024-10-06T15:54:06.462-03:00 ERROR 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry 'marco.antonio.rg340@gmail.com' for key 'users.UK6dotkott2kjsp8vw4d0m25fb7'
+2024-10-06T15:54:06.485-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Error occurred. Starting retry mode.
+
+org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'marco.antonio.rg340@gmail.com' for key 'users.UK6dotkott2kjsp8vw4d0m25fb7'] [insert into users (email,name,password,id) values (?,?,?,?)]; SQL [insert into users (email,name,password,id) values (?,?,?,?)]; constraint [users.UK6dotkott2kjsp8vw4d0m25fb7]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:290) ~[spring-orm-6.1.11.jar:6.1.11]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241) ~[spring-orm-6.1.11.jar:6.1.11]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:566) ~[spring-orm-6.1.11.jar:6.1.11]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:795) ~[spring-tx-6.1.11.jar:6.1.11]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:758) ~[spring-tx-6.1.11.jar:6.1.11]
+	at org.axonframework.spring.messaging.unitofwork.SpringTransactionManager.commitTransaction(SpringTransactionManager.java:86) ~[axon-spring-4.10.0.jar:4.10.0]
+	at org.axonframework.spring.messaging.unitofwork.SpringTransactionManager$1.commit(SpringTransactionManager.java:69) ~[axon-spring-4.10.0.jar:4.10.0]
+	at org.axonframework.messaging.unitofwork.UnitOfWork.lambda$attachTransaction$0(UnitOfWork.java:274) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.messaging.unitofwork.MessageProcessingContext.notifyHandlers(MessageProcessingContext.java:72) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.messaging.unitofwork.BatchingUnitOfWork.lambda$notifyHandlers$2(BatchingUnitOfWork.java:161) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133) ~[na:na]
+	at org.axonframework.messaging.unitofwork.BatchingUnitOfWork.notifyHandlers(BatchingUnitOfWork.java:161) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.messaging.unitofwork.AbstractUnitOfWork.changePhase(AbstractUnitOfWork.java:236) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.messaging.unitofwork.AbstractUnitOfWork.commitAsRoot(AbstractUnitOfWork.java:87) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.messaging.unitofwork.AbstractUnitOfWork.commit(AbstractUnitOfWork.java:75) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.messaging.unitofwork.BatchingUnitOfWork.executeWithResult(BatchingUnitOfWork.java:117) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.eventhandling.AbstractEventProcessor.lambda$processInUnitOfWork$4(AbstractEventProcessor.java:166) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.tracing.Span.runCallable(Span.java:132) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.eventhandling.AbstractEventProcessor.processInUnitOfWork(AbstractEventProcessor.java:165) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.eventhandling.TrackingEventProcessor.processBatch(TrackingEventProcessor.java:491) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.eventhandling.TrackingEventProcessor.processingLoop(TrackingEventProcessor.java:316) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.eventhandling.TrackingEventProcessor$TrackingSegmentWorker.run(TrackingEventProcessor.java:1197) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.eventhandling.TrackingEventProcessor$WorkerLauncher.cleanUp(TrackingEventProcessor.java:1396) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at org.axonframework.eventhandling.TrackingEventProcessor$WorkerLauncher.run(TrackingEventProcessor.java:1373) ~[axon-messaging-4.10.0.jar:4.10.0]
+	at java.base/java.lang.Thread.run(Thread.java:840) ~[na:na]
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement [Duplicate entry 'marco.antonio.rg340@gmail.com' for key 'users.UK6dotkott2kjsp8vw4d0m25fb7'] [insert into users (email,name,password,id) values (?,?,?,?)]
+	at org.hibernate.dialect.MySQLDialect.lambda$buildSQLExceptionConversionDelegate$3(MySQLDialect.java:1234) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.performNonBatchedMutation(AbstractMutationExecutor.java:134) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:55) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:194) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:132) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:104) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:110) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:632) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:499) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:371) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1425) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:487) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:2324) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:1981) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:439) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:169) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:267) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-6.1.11.jar:6.1.11]
+	... 22 common frames omitted
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'marco.antonio.rg340@gmail.com' for key 'users.UK6dotkott2kjsp8vw4d0m25fb7'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109) ~[mysql-connector-j-9.0.0.jar:9.0.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.0.0.jar:9.0.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:987) ~[mysql-connector-j-9.0.0.jar:9.0.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1165) ~[mysql-connector-j-9.0.0.jar:9.0.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1100) ~[mysql-connector-j-9.0.0.jar:9.0.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1466) ~[mysql-connector-j-9.0.0.jar:9.0.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1083) ~[mysql-connector-j-9.0.0.jar:9.0.0]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.1.0.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
+	... 43 common frames omitted
+
+2024-10-06T15:54:06.503-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Releasing claim on token and preparing for retry in 1s
+2024-10-06T15:54:06.546-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Released claim
+2024-10-06T15:54:07.586-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Fetched token: ReplayToken{currentToken=IndexTrackingToken{globalIndex=4}, tokenAtReset=IndexTrackingToken{globalIndex=17}, context=null} for segment: Segment[0/0]
+2024-10-06T15:54:07.618-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.m.command.AbstractRepository         : The active Unit of Work is expected to contain a CommandMessage or a DeadlineMessage, but instead contains a [class org.axonframework.eventhandling.GenericTrackedDomainEventMessage]
+2024-10-06T15:54:07.663-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1062, SQLState: 23000
+2024-10-06T15:54:07.664-03:00 ERROR 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry 'marco.antonio.rg340@gmail.com' for key 'users.UK6dotkott2kjsp8vw4d0m25fb7'
+2024-10-06T15:54:07.678-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Releasing claim on token and preparing for retry in 2s
+2024-10-06T15:54:07.700-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Released claim
+2024-10-06T15:54:09.868-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Fetched token: ReplayToken{currentToken=IndexTrackingToken{globalIndex=4}, tokenAtReset=IndexTrackingToken{globalIndex=17}, context=null} for segment: Segment[0/0]
+2024-10-06T15:54:09.977-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.m.command.AbstractRepository         : The active Unit of Work is expected to contain a CommandMessage or a DeadlineMessage, but instead contains a [class org.axonframework.eventhandling.GenericTrackedDomainEventMessage]
+2024-10-06T15:54:10.030-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1062, SQLState: 23000
+2024-10-06T15:54:10.031-03:00 ERROR 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry 'marco.antonio.rg340@gmail.com' for key 'users.UK6dotkott2kjsp8vw4d0m25fb7'
+2024-10-06T15:54:10.043-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Releasing claim on token and preparing for retry in 4s
+2024-10-06T15:54:10.271-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Released claim
+2024-10-06T15:54:10.446-03:00  INFO 11280 --- [apibloco] [http-nio-8086-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-10-06T15:54:10.447-03:00  INFO 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-10-06T15:54:10.450-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-10-06T15:54:10.481-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-10-06T15:54:10.483-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-10-06T15:54:10.487-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@36b5dbdf
+2024-10-06T15:54:10.489-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@401e36ab
+2024-10-06T15:54:10.498-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-10-06T15:54:10.501-03:00  INFO 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 52 ms
+2024-10-06T15:54:10.555-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : POST "/eureka/apps/EMAILSERVICE", parameters={}
+2024-10-06T15:54:10.619-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-10-06T15:54:10.651-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-10-06T15:54:10.663-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource eureka/apps/EMAILSERVICE.]
+2024-10-06T15:54:10.676-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-10-06T15:54:10.689-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : PUT "/eureka/apps/EMAILSERVICE/6e53bcde04ec:emailservice?status=UP&lastDirtyTimestamp=1728239917377", parameters={masked}
+2024-10-06T15:54:10.709-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-10-06T15:54:10.715-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/eureka/apps/", parameters={}
+2024-10-06T15:54:10.731-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-10-06T15:54:10.736-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-10-06T15:54:10.738-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-10-06T15:54:10.733-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-10-06T15:54:10.748-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource eureka/apps.]
+2024-10-06T15:54:10.750-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-10-06T15:54:10.752-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2024-10-06T15:54:10.756-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource eureka/apps/EMAILSERVICE/6e53bcde04ec:emailservice.]
+2024-10-06T15:54:10.755-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-10-06T15:54:10.765-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-10-06T15:54:10.764-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-10-06T15:54:10.776-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for PUT "/error?status=UP&lastDirtyTimestamp=1728239917377", parameters={masked}
+2024-10-06T15:54:10.798-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-10-06T15:54:10.835-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2024-10-06T15:54:10.835-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2024-10-06T15:54:10.844-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sun Oct 06 15:54:10 BRT 2024, status=404, error=Not Found, path=/eureka/apps/EMAILSERVICE (truncated)...]
+2024-10-06T15:54:10.844-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sun Oct 06 15:54:10 BRT 2024, status=404, error=Not Found, path=/eureka/apps/EMAILSERVICE (truncated)...]
+2024-10-06T15:54:10.850-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2024-10-06T15:54:10.862-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sun Oct 06 15:54:10 BRT 2024, status=404, error=Not Found, path=/eureka/apps/}]
+2024-10-06T15:54:10.904-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-10-06T15:54:10.904-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-10-06T15:54:10.923-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-10-06T15:54:11.087-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] o.s.web.servlet.DispatcherServlet        : POST "/eureka/apps/EMAILSERVICE", parameters={}
+2024-10-06T15:54:11.089-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-10-06T15:54:11.097-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-10-06T15:54:11.122-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource eureka/apps/EMAILSERVICE.]
+2024-10-06T15:54:11.166-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-10-06T15:54:11.199-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for POST "/error", parameters={}
+2024-10-06T15:54:11.360-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-10-06T15:54:11.426-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json]
+2024-10-06T15:54:11.459-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sun Oct 06 15:54:11 BRT 2024, status=404, error=Not Found, path=/eureka/apps/EMAILSERVICE (truncated)...]
+2024-10-06T15:54:11.489-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-10-06T15:54:14.318-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Fetched token: ReplayToken{currentToken=IndexTrackingToken{globalIndex=4}, tokenAtReset=IndexTrackingToken{globalIndex=17}, context=null} for segment: Segment[0/0]
+2024-10-06T15:54:14.369-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.m.command.AbstractRepository         : The active Unit of Work is expected to contain a CommandMessage or a DeadlineMessage, but instead contains a [class org.axonframework.eventhandling.GenericTrackedDomainEventMessage]
+2024-10-06T15:54:14.372-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.html", parameters={}
+2024-10-06T15:54:14.385-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-10-06T15:54:14.398-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-5] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-10-06T15:54:14.400-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource swagger-ui/index.html.]
+2024-10-06T15:54:14.401-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-10-06T15:54:14.402-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-5] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2024-10-06T15:54:14.416-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#errorHtml(HttpServletRequest, HttpServletResponse)
+2024-10-06T15:54:14.418-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1062, SQLState: 23000
+2024-10-06T15:54:14.419-03:00 ERROR 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry 'marco.antonio.rg340@gmail.com' for key 'users.UK6dotkott2kjsp8vw4d0m25fb7'
+2024-10-06T15:54:14.430-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Releasing claim on token and preparing for retry in 8s
+2024-10-06T15:54:14.466-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Released claim
+2024-10-06T15:54:14.473-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, text/html;q=0.8]
+2024-10-06T15:54:14.487-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-5] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-10-06T15:54:14.672-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
+2024-10-06T15:54:14.674-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-10-06T15:54:14.678-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-10-06T15:54:14.680-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
+2024-10-06T15:54:14.681-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-10-06T15:54:14.684-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2024-10-06T15:54:14.686-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-10-06T15:54:14.690-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json]
+2024-10-06T15:54:14.693-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Sun Oct 06 15:54:14 BRT 2024, status=404, error=Not Found, path=/favicon.ico}]
+2024-10-06T15:54:14.704-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-10-06T15:54:22.510-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Fetched token: ReplayToken{currentToken=IndexTrackingToken{globalIndex=4}, tokenAtReset=IndexTrackingToken{globalIndex=17}, context=null} for segment: Segment[0/0]
+2024-10-06T15:54:22.557-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.m.command.AbstractRepository         : The active Unit of Work is expected to contain a CommandMessage or a DeadlineMessage, but instead contains a [class org.axonframework.eventhandling.GenericTrackedDomainEventMessage]
+2024-10-06T15:54:22.599-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1062, SQLState: 23000
+2024-10-06T15:54:22.600-03:00 ERROR 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry 'marco.antonio.rg340@gmail.com' for key 'users.UK6dotkott2kjsp8vw4d0m25fb7'
+2024-10-06T15:54:22.669-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Releasing claim on token and preparing for retry in 16s
+2024-10-06T15:54:22.738-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Released claim
+2024-10-06T15:54:31.097-03:00  INFO 11280 --- [apibloco] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-10-06T15:54:31.100-03:00  INFO 11280 --- [apibloco] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-10-06T15:54:31.102-03:00  INFO 11280 --- [apibloco] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-10-06T15:54:31.103-03:00  INFO 11280 --- [apibloco] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-10-06T15:54:31.103-03:00  INFO 11280 --- [apibloco] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-10-06T15:54:31.109-03:00  INFO 11280 --- [apibloco] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2024-10-06T15:54:31.115-03:00  INFO 11280 --- [apibloco] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-10-06T15:54:31.117-03:00 DEBUG 11280 --- [apibloco] [DiscoveryClient-CacheRefreshExecutor-%d] o.s.web.client.RestTemplate              : HTTP GET http://host.docker.internal:8761/eureka/apps/
+2024-10-06T15:54:31.119-03:00 DEBUG 11280 --- [apibloco] [DiscoveryClient-CacheRefreshExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-10-06T15:54:31.121-03:00 DEBUG 11280 --- [apibloco] [DiscoveryClient-HeartbeatExecutor-%d] o.s.web.client.RestTemplate              : HTTP PUT http://host.docker.internal:8761/eureka/apps/APIBLOCO/host.docker.internal:apibloco:8086?status=UP&lastDirtyTimestamp=1728240841124
+2024-10-06T15:54:31.143-03:00 DEBUG 11280 --- [apibloco] [DiscoveryClient-HeartbeatExecutor-%d] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2024-10-06T15:54:31.172-03:00 DEBUG 11280 --- [apibloco] [DiscoveryClient-CacheRefreshExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+2024-10-06T15:54:31.174-03:00 DEBUG 11280 --- [apibloco] [DiscoveryClient-CacheRefreshExecutor-%d] o.s.web.client.RestTemplate              : Reading to [org.springframework.cloud.netflix.eureka.http.EurekaApplications]
+2024-10-06T15:54:31.178-03:00 DEBUG 11280 --- [apibloco] [DiscoveryClient-HeartbeatExecutor-%d] o.s.web.client.RestTemplate              : Response 200 OK
+2024-10-06T15:54:31.180-03:00  INFO 11280 --- [apibloco] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2024-10-06T15:54:31.917-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/api/swagger-ui.html", parameters={}
+2024-10-06T15:54:31.918-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerWelcomeWebMvc#redirectToUi(HttpServletRequest)
+2024-10-06T15:54:31.948-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/json, application/*+json]
+2024-10-06T15:54:31.950-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2024-10-06T15:54:31.969-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 302 FOUND
+2024-10-06T15:54:32.013-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/api/swagger-ui/index.html", parameters={}
+2024-10-06T15:54:32.015-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-06T15:54:32.047-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-06T15:54:32.152-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/api/swagger-ui/index.css", parameters={}
+2024-10-06T15:54:32.153-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/api/swagger-ui/swagger-ui-bundle.js", parameters={}
+2024-10-06T15:54:32.154-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-06T15:54:32.152-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/api/swagger-ui/swagger-ui.css", parameters={}
+2024-10-06T15:54:32.155-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-06T15:54:32.158-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-06T15:54:32.158-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-06T15:54:32.166-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-06T15:54:32.170-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/api/swagger-ui/swagger-initializer.js", parameters={}
+2024-10-06T15:54:32.168-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/api/swagger-ui/swagger-ui-standalone-preset.js", parameters={}
+2024-10-06T15:54:32.183-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-06T15:54:32.203-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-06T15:54:32.206-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-06T15:54:32.237-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-06T15:54:32.249-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-06T15:54:32.742-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/product/v3/api-docs/swagger-config", parameters={}
+2024-10-06T15:54:32.744-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2024-10-06T15:54:32.745-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/api/swagger-ui/favicon-32x32.png", parameters={}
+2024-10-06T15:54:32.746-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2024-10-06T15:54:32.747-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-10-06T15:54:32.748-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/product/v3/api-docs/swagger-config, oauth2RedirectUrl=http://localhost:8086/api/swagger- (truncated)...]
+2024-10-06T15:54:32.769-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-06T15:54:32.772-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-06T15:54:32.810-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/product/v3/api-docs", parameters={}
+2024-10-06T15:54:32.812-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2024-10-06T15:54:33.718-03:00  INFO 11280 --- [apibloco] [http-nio-8086-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 882 ms
+2024-10-06T15:54:33.863-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2024-10-06T15:54:33.864-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2024-10-06T15:54:33.872-03:00 DEBUG 11280 --- [apibloco] [http-nio-8086-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-10-06T15:54:38.786-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Fetched token: ReplayToken{currentToken=IndexTrackingToken{globalIndex=4}, tokenAtReset=IndexTrackingToken{globalIndex=17}, context=null} for segment: Segment[0/0]
+2024-10-06T15:54:38.819-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.m.command.AbstractRepository         : The active Unit of Work is expected to contain a CommandMessage or a DeadlineMessage, but instead contains a [class org.axonframework.eventhandling.GenericTrackedDomainEventMessage]
+2024-10-06T15:54:39.134-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1062, SQLState: 23000
+2024-10-06T15:54:39.135-03:00 ERROR 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.h.engine.jdbc.spi.SqlExceptionHelper   : Duplicate entry 'marco.antonio.rg340@gmail.com' for key 'users.UK6dotkott2kjsp8vw4d0m25fb7'
+2024-10-06T15:54:39.183-03:00  WARN 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Releasing claim on token and preparing for retry in 32s
+2024-10-06T15:54:39.249-03:00  INFO 11280 --- [apibloco] [EventProcessor[infnet.edu.apibloco]-0] o.a.e.TrackingEventProcessor             : Released claim
