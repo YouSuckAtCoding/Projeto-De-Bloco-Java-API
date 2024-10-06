@@ -10,12 +10,12 @@ services:
     ports:
       - '3306:3306'
 
-  api:
-    container_name: 'apibloco_container'
-    image: 'apibloco:latest'
-    ports:
-      - 8086:8086 
-    restart: unless-stopped
+  # api:
+  #   container_name: 'apibloco_container'
+  #   image: 'apibloco:latest'
+  #   ports:
+  #     - 8086:8086 
+  #   restart: unless-stopped
 
   rabbitmq:
     container_name: 'rabbit'
@@ -33,6 +33,13 @@ services:
     ports:
       - 8024:8024
       - 8124:8124
+
+  eureka:
+    container_name: 'eureka_server'
+    image: 'eureka:latest'
+    ports:
+      - 8761:8761
+
 
 
 
